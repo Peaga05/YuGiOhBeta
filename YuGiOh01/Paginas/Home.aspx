@@ -18,7 +18,7 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end pe-1" id="myNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" runat ="server">
                 <li class="nav-item">
                     <a class="nav-link" href="" data-toggle="tab">Home</a>
                 </li>
@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Paginas/Formularios/FrmMonstro.aspx" runat="server" data-toggle="tab">Gerenciar Monstro</a>
+                    <a class="nav-link" href="~/Paginas/Formularios/FrmMonstro.aspx" runat="server">Gerenciar Monstro</a>
                 </li>
 
                 <li class="nav-item">

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace YuGiOh01.DAO
 {
@@ -34,6 +38,58 @@ namespace YuGiOh01.DAO
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        internal static void ExcluirMonstro(int id)
+        {
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    var monstro = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == id);
+                    ctx.Monstros.Remove(monstro);
+                    ctx.SaveChanges();
+                }
+            }catch(SqlException sqlEx)
+            {
+                throw sqlEx;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        internal static Monstro ObterMonstro(int id)
+        {
+            Monstro monstro = null;
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    monstro = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == id);
+                }
+            }catch( Exception ex)
+            {
+                throw ex;
+            }
+            return monstro;
+        }
+
+        internal static List<Monstro> ObterMonstros()
+        {
+            List<Monstro> monstros = null;
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    monstros = ctx.Monstros.OrderBy(x => x.Descricao).ToList();
+                }
+            }catch(Exception ex)
+            {
+                throw;
+            }
+            return monstros;
         }
     }
 }

@@ -89,6 +89,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
       <LastGenOutput>YuGiOhEntity.cs</LastGenOutput>
+
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +101,7 @@
     </Compile>
     <Compile Include="Carta.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
+
     </Compile>
     <Compile Include="DAO\MonstroDAO.cs" />
     <Compile Include="DAO\TipoCartaDAO.cs" />
@@ -187,6 +189,7 @@
     </EntityDeploy>
     <Content Include="YuGiOhEntity.edmx.diagram">
       <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
+
     </Content>
   </ItemGroup>
   <ItemGroup>

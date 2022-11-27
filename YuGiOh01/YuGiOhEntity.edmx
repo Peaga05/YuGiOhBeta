@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="YuGiOhBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="YuGiOhBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Armadilha">
           <Key>
             <PropertyRef Name="IdArmadilha" />
@@ -64,7 +64,7 @@
             <PropertyRef Name="IdMonstro" />
           </Key>
           <Property Name="IdMonstro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descricao" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="IdTipoCarta" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MonstroPendulo">
@@ -80,6 +80,7 @@
             <PropertyRef Name="IdTipoCarta" />
           </Key>
           <Property Name="IdTipoCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoMonstroEfeito">
           <Key>
@@ -254,7 +255,8 @@
             <End Role="Armadilha" EntitySet="Armadilha" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YuGiOhBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -325,7 +327,7 @@
             <PropertyRef Name="IdMonstro" />
           </Key>
           <Property Name="IdMonstro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descricao" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoCarta" Relationship="Self.fk_Monstro_TipoCarta" FromRole="Monstro" ToRole="TipoCarta" />
           <NavigationProperty Name="TipoMonstroEfeitoes" Relationship="Self.fk_MonstroEfeito_TipoMonstro" FromRole="Monstro" ToRole="TipoMonstroEfeito" />
@@ -344,6 +346,7 @@
             <PropertyRef Name="IdTipoCarta" />
           </Key>
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Armadilhas" Relationship="Self.FKCARTAIDCARTA" FromRole="TipoCarta" ToRole="Armadilha" />
           <NavigationProperty Name="Cartas" Relationship="Self.FK_Carta_TipoCarta" FromRole="TipoCarta" ToRole="Carta" />
           <NavigationProperty Name="Magias" Relationship="Self.FK_Magias_ToTable" FromRole="TipoCarta" ToRole="Magias" />
@@ -613,6 +616,7 @@
             <EntityTypeMapping TypeName="YuGiOhBDModel.TipoCarta">
               <MappingFragment StoreEntitySet="TipoCarta">
                 <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
@@ -40,7 +41,23 @@ namespace YuGiOh01.DAO
             }
         }
 
-        internal static void ExcluirMonstro(int id)
+        public static void AlterarMonstro(Monstro monstro)
+        {
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    var monstroAlterado = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == x.IdMonstro);
+                    monstroAlterado.Descricao = monstro.Descricao;
+                    ctx.SaveChanges();
+                }
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ExcluirMonstro(int id)
         {
             try
             {
@@ -50,9 +67,9 @@ namespace YuGiOh01.DAO
                     ctx.Monstros.Remove(monstro);
                     ctx.SaveChanges();
                 }
-            }catch(SqlException sqlEx)
+            }catch(DbUpdateException dbUpEx)
             {
-                throw sqlEx;
+                throw dbUpEx;
             }
             catch(Exception ex)
             {
@@ -60,7 +77,7 @@ namespace YuGiOh01.DAO
             }
         }
 
-        internal static Monstro ObterMonstro(int id)
+        public static Monstro ObterMonstro(int id)
         {
             Monstro monstro = null;
             try
@@ -76,7 +93,7 @@ namespace YuGiOh01.DAO
             return monstro;
         }
 
-        internal static List<Monstro> ObterMonstros()
+        public static List<Monstro> ObterMonstros()
         {
             List<Monstro> monstros = null;
             try

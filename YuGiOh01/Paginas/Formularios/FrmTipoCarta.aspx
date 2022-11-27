@@ -5,11 +5,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Gerenciar Tipo Carta</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="navbar-brand ps-2">Gerenciar Tipo Carta</div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end pe-1" id="myNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gerenciar
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/Paginas/Home.aspx" runat="server">Home</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="~/"  runat="server">Sair</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
     <form id="form1" runat="server">
         <div class="container w-50 mt-4">
             <div class="mt-4">
@@ -21,7 +54,7 @@
             </div>
 
             <div class="mb-3">
-                <asp:Button Text="Cadastrar" ID="btnCadastrar" runat="server" class="btn btn-primary w-100" OnClick="btnCadastrar_Click"/>
+                <asp:Button Text="Cadastrar" ID="btnCadastrar" runat="server" class="btn btn-primary w-100" OnClick="btnCadastrar_Click" />
             </div>
 
             <div class="mb-3 text-center">
@@ -48,42 +81,39 @@
                                 <td><%# Eval("Descricao")%></td>
 
                                 <td>
-                                     <asp:imagebutton
+                                    <asp:ImageButton
                                         runat="server"
-                                        id="btnVisualizar"
+                                        ID="btnVisualizar"
                                         ImageUrl="../../Assets/Images/search.png"
-                                        tooltip="Visualizar"
+                                        ToolTip="Visualizar"
                                         OnCommand="btnAcoes_Command"
-                                         style="width:20px;"
+                                        Style="width: 20px;"
                                         CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Visualizar"
-                                        />
+                                        CommandName="Visualizar" />
                                 </td>
 
                                 <td>
-                                     <asp:imagebutton
+                                    <asp:ImageButton
                                         runat="server"
-                                        id="btnAlterar"
+                                        ID="btnAlterar"
                                         ImageUrl="../../Assets/Images/update.png"
-                                        tooltip="Alterar"
+                                        ToolTip="Alterar"
                                         OnCommand="btnAcoes_Command"
-                                         style="width:20px;"
+                                        Style="width: 20px;"
                                         CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Alterar"                              
-                                        />
+                                        CommandName="Alterar" />
                                 </td>
 
                                 <td>
-                                    <asp:imagebutton
+                                    <asp:ImageButton
                                         runat="server"
-                                        id="btnExcluir"
+                                        ID="btnExcluir"
                                         ImageUrl="~/Assets/Images/delete.png"
-                                        tooltip="Excluir"
+                                        ToolTip="Excluir"
                                         OnCommand="btnAcoes_Command"
-                                        style="width:20px;"
+                                        Style="width: 20px;"
                                         CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Excluir"                                        
-                                        />
+                                        CommandName="Excluir" />
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -97,7 +127,7 @@
 
         </div>
 
-        <asp:HiddenField id="hfId" runat="server"/>
+        <asp:HiddenField ID="hfId" runat="server" />
 
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

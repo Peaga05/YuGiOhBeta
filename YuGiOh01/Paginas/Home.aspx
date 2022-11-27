@@ -29,17 +29,17 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                        <li><a class="dropdown-item" href="#">Gerenciar Tipo Carta</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Paginas/Home.aspx" >Home</a>
+                    <a class="nav-link" href="~/Paginas/Home.aspx" runat="server" >Home</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="" data-toggle="tab">Sair</a>
+                    <a class="nav-link" href="~/" runat="server">Sair</a>
                 </li>
             </ul>
 

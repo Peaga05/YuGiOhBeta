@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,15 +36,34 @@ namespace YuGiOh01.Paginas.Formularios
                 if (descricao != "")
                 {
                     TipoCarta tc = DAO.TipoCartaDAO.ObterTipoCarta("monstro");
-                    Monstro monstro = new Monstro();
+                    Monstro monstro = null;
+                    if (btnCadastrar.Text.ToLower() == "alterar")
+                    {
+                        var id = Convert.ToInt32(hfId.Value);
+                        monstro = MonstroDAO.ObterMonstro(id);
+                    }
+                    else
+                    {
+                         monstro = new Monstro();
+                    }
+                  
+                    
                     if (tc != null)
                     {
                         monstro.Descricao = descricao;
                         monstro.IdTipoCarta = tc.IdTipoCarta;
-                        DAO.MonstroDAO.CadastrarMonstro(monstro);
-                        mensagem = "Monstro cadastrado com sucesso!";
-                        txtMonstro.Text = "";
 
+                        if(btnCadastrar.Text.ToLower() == "alterar")
+                        {
+                            MonstroDAO.AlterarMonstro(monstro);
+                            mensagem = "Monstro Alterado com sucesso!";
+                        }
+                        else
+                        {
+                            DAO.MonstroDAO.CadastrarMonstro(monstro);
+                            mensagem = "Monstro cadastrado com sucesso!";
+                        } 
+                        txtMonstro.Text = "";
                     }
                     else
                     {
@@ -55,7 +75,8 @@ namespace YuGiOh01.Paginas.Formularios
                     mensagem = "Por favor, Insira uma descrição!";
                 }
                 lblMensagem.InnerText = mensagem;
-                PopularLvMonstros(DAO.MonstroDAO.ObterMonstros());
+                PopularLvMonstros(MonstroDAO.ObterMonstros());
+                Response.Redirect("~/Paginas/Formularios/FrmMonstro.aspx");
             }
             catch (Exception ex)
             {
@@ -73,6 +94,7 @@ namespace YuGiOh01.Paginas.Formularios
                 var id = Convert.ToInt32(e.CommandArgument);
                 if(comando == "alterar")
                 {
+                    AlterarMonstro(id);
                     btnNovoMonstro.Visible = true;
                 }
                 else if( comando == "visualizar")
@@ -85,10 +107,29 @@ namespace YuGiOh01.Paginas.Formularios
                     ExcluirMonstro(id);
                 }
 
-            }catch(Exception ex)
+            }
+            catch (DbUpdateException dbUpEx)
+            {
+                lblMensagem.InnerText = "Monstro não pode ser excluído pois está em uso";
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+
+        }
+
+        private void AlterarMonstro(int id)
+        {
+            txtMonstro.Enabled = true;
+            btnCadastrar.Visible = true;
+
+            var monstro = MonstroDAO.ObterMonstro(id);
+            txtMonstro.Text = monstro.Descricao.ToString();
+            btnCadastrar.Text = "Alterar";
+            h1Titulo.InnerText = "Alterar Monstro";
+            hfId.Value = monstro.IdMonstro.ToString();
+            
 
         }
 
@@ -103,6 +144,8 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void ExcluirMonstro(int id)
         {
+            txtMonstro.Enabled = true;
+            btnCadastrar.Visible = true;
             try
             {
                 MonstroDAO.ExcluirMonstro(id);

@@ -15,6 +15,15 @@ namespace YuGiOh01.Paginas.Formularios
     {
 
         /// <summary>
+        /// Controle h1Titulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1Titulo;
+
+        /// <summary>
         /// Controle txtMonstro.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace YuGiOh01.Paginas.Formularios
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvMonstro;
+
+        /// <summary>
+        /// Controle hfId.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfId;
     }
 }

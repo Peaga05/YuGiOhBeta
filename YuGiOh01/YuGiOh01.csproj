@@ -76,13 +76,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="YuGiOhEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
-      <LastGenOutput>YuGiOhEntity.Context.cs</LastGenOutput>
+      <DependentUpon>YuGiOhBDEntity.edmx</DependentUpon>
+      <LastGenOutput>YuGiOhBDEntity.Context.cs</LastGenOutput>
     </Content>
     <Content Include="YuGiOhEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -100,6 +101,8 @@
     <Compile Include="Carta.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\MonstroDAO.cs" />
+    <Compile Include="DAO\TipoCartaDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -24,6 +24,7 @@ namespace YuGiOh01
         }
     
         public int IdTipoCarta { get; set; }
+        public string Descricao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Armadilha> Armadilhas { get; set; }

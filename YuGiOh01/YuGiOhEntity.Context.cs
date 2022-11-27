@@ -31,10 +31,10 @@ namespace YuGiOh01
         public virtual DbSet<Icone> Icones { get; set; }
         public virtual DbSet<LogUsuario> LogUsuarios { get; set; }
         public virtual DbSet<Magia> Magias { get; set; }
-        public virtual DbSet<Monstro> Monstroes { get; set; }
-        public virtual DbSet<MonstroPendulo> MonstroPenduloes { get; set; }
+        public virtual DbSet<Monstro> Monstros { get; set; }
+        public virtual DbSet<MonstroPendulo> MonstrosPendulos { get; set; }
         public virtual DbSet<TipoCarta> TipoCartas { get; set; }
-        public virtual DbSet<TipoMonstroEfeito> TipoMonstroEfeitoes { get; set; }
+        public virtual DbSet<TipoMonstroEfeito> TipoMonstrosEfeitos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace YuGiOh01.DAO
         {
 			try
 			{
-				using(var ctx = new YuGiOhBDEntities())
+				using(var ctx = new YuGiOhEntity())
 				{
 					ctx.Usuarios.Add(user);
 					ctx.SaveChanges();
@@ -25,7 +25,7 @@ namespace YuGiOh01.DAO
         {
 			try
 			{
-				using(var ctx = new YuGiOhBDEntities())
+				using(var ctx = new YuGiOhEntity())
 				{
 					ctx.LogUsuarios.Add(log);
 					ctx.SaveChanges();
@@ -42,7 +42,7 @@ namespace YuGiOh01.DAO
             Usuario usuario = null;
             try
 			{
-				using(var ctx = new YuGiOhBDEntities())
+				using (var ctx = new YuGiOhEntity())
 				{
 
                    usuario = ctx.Usuarios.FirstOrDefault(

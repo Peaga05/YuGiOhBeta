@@ -13,10 +13,10 @@ namespace YuGiOh01
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class YuGiOhBDEntities : DbContext
+    public partial class YuGiOhEntity : DbContext
     {
-        public YuGiOhBDEntities()
-            : base("name=YuGiOhBDEntities")
+        public YuGiOhEntity()
+            : base("name=YuGiOhEntity")
         {
         }
     

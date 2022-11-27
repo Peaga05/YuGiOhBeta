@@ -75,6 +75,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\YuGiOhBD.mdf" />
+    <Content Include="App_Data\YuGiOhBD_log.ldf">
+      <DependentUpon>YuGiOhBD.mdf</DependentUpon>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
@@ -89,7 +93,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
       <LastGenOutput>YuGiOhEntity.cs</LastGenOutput>
-
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +104,6 @@
     </Compile>
     <Compile Include="Carta.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
-
     </Compile>
     <Compile Include="DAO\MonstroDAO.cs" />
     <Compile Include="DAO\TipoCartaDAO.cs" />
@@ -189,7 +191,6 @@
     </EntityDeploy>
     <Content Include="YuGiOhEntity.edmx.diagram">
       <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
-
     </Content>
   </ItemGroup>
   <ItemGroup>

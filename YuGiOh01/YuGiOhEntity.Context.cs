@@ -26,7 +26,7 @@ namespace YuGiOh01
         }
     
         public virtual DbSet<Armadilha> Armadilhas { get; set; }
-        public virtual DbSet<Atributo> Atributoes { get; set; }
+        public virtual DbSet<Atributo> Atributos { get; set; }
         public virtual DbSet<Carta> Cartas { get; set; }
         public virtual DbSet<Icone> Icones { get; set; }
         public virtual DbSet<LogUsuario> LogUsuarios { get; set; }

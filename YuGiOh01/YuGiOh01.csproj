@@ -75,8 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\delete.png" />
+    <Content Include="Assets\Images\search.png" />
+    <Content Include="Assets\Images\update.png" />
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
+    <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Web.config" />
@@ -131,6 +135,13 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMonstro.aspx.designer.cs">
       <DependentUpon>FrmMonstro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmTipoCarta.aspx.cs">
+      <DependentUpon>FrmTipoCarta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmTipoCarta.aspx.designer.cs">
+      <DependentUpon>FrmTipoCarta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmUsuario.aspx.cs">
       <DependentUpon>FrmUsuario.aspx</DependentUpon>

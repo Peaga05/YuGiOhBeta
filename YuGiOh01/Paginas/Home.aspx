@@ -32,6 +32,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="~/Paginas/Formularios/FrmMonstro.aspx" runat="server" data-toggle="tab">Gerenciar Monstro</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="" data-toggle="tab">Sair</a>
                 </li>
             </ul>

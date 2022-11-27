@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="YuGiOhBDModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="YuGiOhBDModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Armadilha">
           <Key>
             <PropertyRef Name="IdArmadilha" />
@@ -255,7 +255,8 @@
             <End Role="Armadilha" EntitySet="Armadilha" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YuGiOhBDModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -485,10 +486,10 @@
           <EntitySet Name="Icones" EntityType="Self.Icone" />
           <EntitySet Name="LogUsuarios" EntityType="Self.LogUsuario" />
           <EntitySet Name="Magias" EntityType="Self.Magia" />
-          <EntitySet Name="Monstros" EntityType="Self.Monstro" />
-          <EntitySet Name="MonstrosPendulos" EntityType="Self.MonstroPendulo" />
+          <EntitySet Name="Monstroes" EntityType="Self.Monstro" />
+          <EntitySet Name="MonstroPenduloes" EntityType="Self.MonstroPendulo" />
           <EntitySet Name="TipoCartas" EntityType="Self.TipoCarta" />
-          <EntitySet Name="TipoMonstrosEfeitos" EntityType="Self.TipoMonstroEfeito" />
+          <EntitySet Name="TipoMonstroEfeitoes" EntityType="Self.TipoMonstroEfeito" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
           <AssociationSet Name="FKCARTAIDCARTA" Association="Self.FKCARTAIDCARTA">
             <End Role="TipoCarta" EntitySet="TipoCartas" />
@@ -516,15 +517,15 @@
           </AssociationSet>
           <AssociationSet Name="fk_Monstro_TipoCarta" Association="Self.fk_Monstro_TipoCarta">
             <End Role="TipoCarta" EntitySet="TipoCartas" />
-            <End Role="Monstro" EntitySet="Monstros" />
+            <End Role="Monstro" EntitySet="Monstroes" />
           </AssociationSet>
           <AssociationSet Name="fk_MonstroEfeito_TipoMonstro" Association="Self.fk_MonstroEfeito_TipoMonstro">
-            <End Role="Monstro" EntitySet="Monstros" />
-            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstrosEfeitos" />
+            <End Role="Monstro" EntitySet="Monstroes" />
+            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstroEfeitoes" />
           </AssociationSet>
           <AssociationSet Name="FK_MonstroPendulo_ToTable" Association="Self.FK_MonstroPendulo_ToTable">
-            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstrosEfeitos" />
-            <End Role="MonstroPendulo" EntitySet="MonstrosPendulos" />
+            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstroEfeitoes" />
+            <End Role="MonstroPendulo" EntitySet="MonstroPenduloes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -593,7 +594,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Monstros">
+          <EntitySetMapping Name="Monstroes">
             <EntityTypeMapping TypeName="YuGiOhBDModel1.Monstro">
               <MappingFragment StoreEntitySet="Monstro">
                 <ScalarProperty Name="IdMonstro" ColumnName="IdMonstro" />
@@ -602,7 +603,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MonstrosPendulos">
+          <EntitySetMapping Name="MonstroPenduloes">
             <EntityTypeMapping TypeName="YuGiOhBDModel1.MonstroPendulo">
               <MappingFragment StoreEntitySet="MonstroPendulo">
                 <ScalarProperty Name="IdMonstroPendulo" ColumnName="IdMonstroPendulo" />
@@ -619,7 +620,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TipoMonstrosEfeitos">
+          <EntitySetMapping Name="TipoMonstroEfeitoes">
             <EntityTypeMapping TypeName="YuGiOhBDModel1.TipoMonstroEfeito">
               <MappingFragment StoreEntitySet="TipoMonstroEfeito">
                 <ScalarProperty Name="IdMonstroEfeito" ColumnName="IdMonstroEfeito" />

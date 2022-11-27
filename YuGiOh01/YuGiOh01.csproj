@@ -80,6 +80,7 @@
       <DependentUpon>YuGiOhBD.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
+    <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Web.config" />
@@ -104,6 +105,8 @@
     <Compile Include="Carta.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\MonstroDAO.cs" />
+    <Compile Include="DAO\TipoCartaDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,6 +128,13 @@
     </Compile>
     <Compile Include="MonstroPendulo.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstro.aspx.cs">
+      <DependentUpon>FrmMonstro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstro.aspx.designer.cs">
+      <DependentUpon>FrmMonstro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmUsuario.aspx.cs">
       <DependentUpon>FrmUsuario.aspx</DependentUpon>
@@ -183,7 +193,9 @@
       <DependentUpon>YuGiOhEntity.edmx</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

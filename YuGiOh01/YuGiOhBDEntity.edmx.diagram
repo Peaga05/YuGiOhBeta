@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1c1507e20693485c993c20c05b45b3b7" Name="Diagram1">
+      <Diagram DiagramId="f414fe028d824ba2af60c9346a754a12" Name="Diagram1">
         <EntityTypeShape EntityType="YuGiOhBDModel1.Armadilha" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="YuGiOhBDModel1.Atributo" Width="1.5" PointX="3.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="YuGiOhBDModel1.Carta" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />

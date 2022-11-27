@@ -26,6 +26,7 @@
 
             <div class="mb-3 text-center">
                 <label id="lblMensagem" runat="server"></label>
+                <a href="~/Paginas/Formularios/FrmTipoCarta.aspx" id="linkCad" runat="server" visible="false">Cadastrar novo tipo de carta</a>
             </div>
 
             <div class="container mt-4">

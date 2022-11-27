@@ -14,9 +14,11 @@ namespace YuGiOh01.Paginas.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!Page.IsPostBack)
             {
                 PopularLvTipoCarta(TipoCartaDAO.ObterTiposCarta());
+                
             }
         }
 
@@ -28,6 +30,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
+            
             var descricao = txtTipoCarta.Text;
             var mensagem = "";
             try
@@ -87,11 +90,14 @@ namespace YuGiOh01.Paginas.Formularios
         {
             try
             {
+                linkCad.Visible = true;
+                lblMensagem.InnerText = "";
                 var comando = e.CommandName.ToLower();
                 var id = Convert.ToInt32(e.CommandArgument.ToString());
 
                 if(comando == "alterar")
                 {
+
                     AlterarTipoCarta(id);
 
                 }
@@ -114,6 +120,8 @@ namespace YuGiOh01.Paginas.Formularios
 
                 throw;
             }
+
+            
         }
 
         private void VisualizarTipoCarta(int id)
@@ -122,17 +130,22 @@ namespace YuGiOh01.Paginas.Formularios
             txtTipoCarta.Text = tipoCarta.Descricao.ToString(); 
             txtTipoCarta.Enabled = false;
             btnCadastrar.Visible = false;
+
         }
 
         private void ExcluirTipoCarta(int id)
         {
-
+            txtTipoCarta.Enabled = true;
+            btnCadastrar.Visible = true;
             TipoCartaDAO.ExcluirTipoCarta(id);
             PopularLvTipoCarta(TipoCartaDAO.ObterTiposCarta());
         }
 
         private void AlterarTipoCarta(int id)
         {
+            txtTipoCarta.Enabled = true;
+            btnCadastrar.Visible = true;
+
             var tipo = TipoCartaDAO.ObterTipoCarta(id);
             txtTipoCarta.Text = tipo.Descricao.ToString();
 

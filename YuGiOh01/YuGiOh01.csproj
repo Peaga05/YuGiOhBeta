@@ -75,10 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\YuGiOhBD.mdf" />
-    <Content Include="App_Data\YuGiOhBD_log.ldf">
-      <DependentUpon>YuGiOhBD.mdf</DependentUpon>
-    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />

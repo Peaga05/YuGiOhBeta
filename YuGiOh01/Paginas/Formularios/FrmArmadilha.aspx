@@ -34,8 +34,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                                <li><a class="dropdown-item" href="#">Gerenciar Tipo Carta</a></li>
-                                <li><a class="dropdown-item" href="#">Gerenciar Armadilhas</a></li>
+                                <li><a class="dropdown-item" href="~/Paginas/Formularios/FrmTipoCarta.aspx"">Gerenciar Tipo Carta</a></li>
+                                <li><a class="dropdown-item" href="~/Paginas/Formularios/FrmArmadilha.aspx"">Gerenciar Armadilhas</a></li>
+                                <li><a class="dropdown-item" href="~/Paginas/Formularios/FrmMagias.aspx"">Gerenciar Magias</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -70,7 +71,7 @@
 
             <div class="container mt-4">
 
-                <h3 class="text-center mb-2">Tipos de Cartas Cadastradas</h3>
+                <h3 class="text-center mb-2">Tipos de Armadilhas Cadastradas</h3>
 
                 <table class="table m-auto table-hover table-bordered text-center m-auto">
                     <thead class="thead-dark">
@@ -124,7 +125,7 @@
                             </tr>
                         </ItemTemplate>
                         <EmptyDataTemplate>
-                            Não existe tipo de carta cadastrada!
+                            Não existe armadilha cadastrada!
                         </EmptyDataTemplate>
                     </asp:ListView>
 

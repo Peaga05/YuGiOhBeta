@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using YuGiOh01.DAO;
 
 namespace YuGiOh01.Paginas.Formularios
 {
-    public partial class FrmArmadilha : System.Web.UI.Page
+    public partial class FrmMagias : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                PopularLvArmadilha(ArmadilhaDAO.ObterArmadilhas());
+                PopularLvMagias(MagiasDAO.ObterMagias());
 
             }
+
         }
 
-        private void PopularLvArmadilha(List<Armadilha> armadilha)
+        private void PopularLvMagias(List<Magia> magias)
         {
-            lvlArmadilha.DataSource = armadilha;
-            lvlArmadilha.DataBind();
+            lvlMagia.DataSource = magias;
+            lvlMagia.DataBind();    
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
-            var descricao = txtArmadilha.Text;
+            var descricao = txtMagia.Text;
             var mensagem = "";
             try
             {
@@ -39,45 +39,45 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 else
                 {
-                    TipoCarta tc = TipoCartaDAO.ObterTipoCarta("Armadilha");
+                    TipoCarta tc = TipoCartaDAO.ObterTipoCarta("Magia");
 
                     if (tc == null)
                     {
-                        mensagem = "Não existe o tipo armadilha cadastrada";
+                        mensagem = "Não existe o tipo magia cadastrada";
                     }
                     else
                     {
-                        Armadilha am = null;
+                        Magia mg = null;
 
 
                         if (btnCadastrar.Text.ToLower() == "alterar")
                         {
                             var id = Convert.ToInt32(hfId.Value);
-                            am = ArmadilhaDAO.ObterArmadilha(id);
+                            mg = MagiasDAO.ObterMagia(id);
                         }
                         else
                         {
-                            am = new Armadilha();
+                            mg = new Magia();
 
                         }
 
-                        am.Descricao = descricao;
-                        am.IdTipoCarta = tc.IdTipoCarta;
+                        mg.Descricao = descricao;
+                        mg.IdTipoCarta = tc.IdTipoCarta;
 
                         if (btnCadastrar.Text.ToLower() == "alterar")
                         {
-                            ArmadilhaDAO.AlterarArmadilha(am);
-                            mensagem = "Armadilha alterado com sucesso!";
+                            MagiasDAO.AlterarMagia(mg);
+                            mensagem = "Magia alterado com sucesso!";
                         }
                         else
                         {
-                            ArmadilhaDAO.CadastrarArmadilha(am);
-                            mensagem = "Armadilha cadastrado com sucesso!";
+                            MagiasDAO.CadastrarMagia(mg);
+                            mensagem = "Magia cadastrado com sucesso!";
                         }
 
-                        PopularLvArmadilha(ArmadilhaDAO.ObterArmadilhas());
+                        PopularLvMagias(MagiasDAO.ObterMagias());
 
-                        Response.Redirect("~/Paginas/Formularios/FrmArmadilha.aspx");
+                        Response.Redirect("~/Paginas/Formularios/FrmMagias.aspx");
 
                     }
                 }
@@ -88,7 +88,6 @@ namespace YuGiOh01.Paginas.Formularios
 
                 throw ex;
             }
-   
         }
 
         protected void btnAcoes_Command(object sender, CommandEventArgs e)
@@ -103,57 +102,56 @@ namespace YuGiOh01.Paginas.Formularios
                 if (comando == "alterar")
                 {
 
-                    AlterarArmadilha(id);
+                    AlterarMagia(id);
 
                 }
                 else if (comando == "excluir")
                 {
-                    ExcluirArmadilha(id);
+                    ExcluirMagia(id);
                 }
                 else if (comando == "visualizar")
                 {
-                    VisualizarArmadilha(id);
+                    VisualizarMagia(id);
                 }
 
             }
             catch (DbUpdateException sqlEx)
             {
-                lblMensagem.InnerText = "Essa armadilha está em uso!";
+                lblMensagem.InnerText = "Essa magia está em uso!";
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-
         }
 
-        private void VisualizarArmadilha(int id)
+        private void VisualizarMagia(int id)
         {
-            var armadilha = ArmadilhaDAO.ObterArmadilha(id);
-            txtArmadilha.Text = armadilha.Descricao.ToString();
-            txtArmadilha.Enabled = false;
+            var magia = MagiasDAO.ObterMagia(id);
+            txtMagia.Text = magia.Descricao.ToString();
+            txtMagia.Enabled = false;
             btnCadastrar.Visible = false;
         }
 
-        private void ExcluirArmadilha(int id)
+        private void ExcluirMagia(int id)
         {
-            txtArmadilha.Enabled = true;
+            txtMagia.Enabled = true;
             btnCadastrar.Visible = true;
-            ArmadilhaDAO.ExcluirArmadilha(id);
-            PopularLvArmadilha(ArmadilhaDAO.ObterArmadilhas());
+            MagiasDAO.ExcluirMagia(id);
+            PopularLvMagias(MagiasDAO.ObterMagias());
         }
 
-        private void AlterarArmadilha(int id)
+        private void AlterarMagia(int id)
         {
-            txtArmadilha.Enabled = true;
+            txtMagia.Enabled = true;
             btnCadastrar.Visible = true;
 
-            var tipo = ArmadilhaDAO.ObterArmadilha(id);
-            txtArmadilha.Text = tipo.Descricao.ToString();
+            var magia = MagiasDAO.ObterMagia(id);
+            txtMagia.Text = magia.Descricao.ToString();
 
             btnCadastrar.Text = "Alterar";
-            h1Titulo.InnerText = "Alterando Armadilha";
+            h1Titulo.InnerText = "Alterando Mágia";
 
             hfId.Value = id.ToString();
         }

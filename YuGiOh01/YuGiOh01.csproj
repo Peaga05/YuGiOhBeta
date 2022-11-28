@@ -80,6 +80,7 @@
     <Content Include="Assets\Images\update.png" />
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmArmadilha.aspx" />
+    <Content Include="Paginas\Formularios\FrmMagias.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
@@ -138,6 +139,13 @@
     <Compile Include="Paginas\Formularios\FrmArmadilha.aspx.designer.cs">
       <DependentUpon>FrmArmadilha.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Formularios\FrmMagias.aspx.cs">
+      <DependentUpon>FrmMagias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMagias.aspx.designer.cs">
+      <DependentUpon>FrmMagias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Formularios\FrmMonstro.aspx.cs">
       <DependentUpon>FrmMonstro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +168,7 @@
       <DependentUpon>FrmUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\MagiasDAO.cs" />
     <Compile Include="Paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

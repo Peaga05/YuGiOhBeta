@@ -81,6 +81,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmArmadilha.aspx" />
     <Content Include="Paginas\Formularios\FrmMagias.aspx" />
+    <Content Include="Paginas\Formularios\FrmAtributo.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
     <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
@@ -107,6 +108,7 @@
     <Compile Include="Carta.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AtributoDAO.cs" />
     <Compile Include="DAO\MonstroDAO.cs" />
     <Compile Include="DAO\TipoCartaDAO.cs" />
     <Compile Include="Default.aspx.cs">
@@ -145,6 +147,12 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMagias.aspx.designer.cs">
       <DependentUpon>FrmMagias.aspx</DependentUpon>
+    <Compile Include="Paginas\Formularios\FrmAtributo.aspx.cs">
+      <DependentUpon>FrmAtributo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmAtributo.aspx.designer.cs">
+      <DependentUpon>FrmAtributo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMonstro.aspx.cs">
       <DependentUpon>FrmMonstro.aspx</DependentUpon>

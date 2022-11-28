@@ -91,5 +91,22 @@ namespace YuGiOh01.DAO
             }
             return tme;
         }
+
+        internal static TipoMonstroEfeito ObterMonstroEfeito(string v)
+        {
+            TipoMonstroEfeito tme = null;
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    tme = ctx.TipoMonstrosEfeitos.FirstOrDefault(x => x.Descricao.ToLower() == v);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return tme;
+        }
     }
 }

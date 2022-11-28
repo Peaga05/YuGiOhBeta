@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstroEfeito.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstroEfeito" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstroPendulo.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstroPendulo" %>
 
 <!DOCTYPE html>
 
@@ -9,11 +9,11 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Gerenciar Monstros de Efeitos</title>
+    <title>Gerenciar monstros pêndulos</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="navbar-brand ps-2">Gerenciar Monstros de Efeitos</div>
+        <div class="navbar-brand ps-2">Gerenciar Monstros Pêndulos</div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
     <form runat="server">
         <div class="container w-50 mt-4">
             <div class="mt-4">
-                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro de efeito</h1>
+                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro Pêndulo</h1>
             </div>
             <div class="mb-3">
                 <label for="txtMonstro" class="form-label" runat="server">Descrição</label>
@@ -60,11 +60,11 @@
 
             <div class="mb-3 text-center">
                 <label id="lblMensagem" runat="server"></label>
-                <a href="~/Paginas/Formularios/FrmMonstroEfeito.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro de efeito</a>
+                <a href="~/Paginas/Formularios/FrmMonstroPendulo.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro pêndulo</a>
             </div>
 
             <div class="container mt-4">
-                <h3 class="text-center mb-2">Monstros de efeitos cadastrados</h3>
+                <h3 class="text-center mb-2">Monstros pêndulos cadastrados</h3>
                 <table class="table m-auto table-hover table-bordered text-center m-auto">
                     <thead class="thead-dark">
                         <tr>
@@ -73,17 +73,17 @@
                             <td colspan="3"><b>Ações</b></td>
                         </tr>
                     </thead>
-                    <asp:ListView runat="server" ID="lvMonstroEfeito">
+                    <asp:ListView runat="server" ID="lvMonstroPendulos">
                         <ItemTemplate>
                             <tr>
-                                <th><%#Eval("IdMonstroEfeito") %></th>
+                                <th><%#Eval("IdMonstroPendulo") %></th>
                                 <td><%#Eval("Descricao") %></td>
                                 <td>
                                     <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
                                         ID="btnVisualizar"
                                         ToolTip="Visualizar"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
                                         CommandName="Visualizar"
                                         Style="width: 20px" />
                                 </td>
@@ -92,7 +92,7 @@
                                         ID="btnAlterar"
                                         ToolTip="Alterar"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
                                         CommandName="Alterar"
                                         Style="width: 20px" />
                                 </td>
@@ -101,7 +101,7 @@
                                         ID="btnExcluir"
                                         ToolTip="Excluir"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
                                         CommandName="Excluir"
                                         Style="width: 20px" />
                                 </td>

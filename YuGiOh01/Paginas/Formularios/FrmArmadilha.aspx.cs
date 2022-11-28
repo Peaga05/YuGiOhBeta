@@ -138,10 +138,9 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void ExcluirArmadilha(int id)
         {
-            txtArmadilha.Enabled = true;
-            btnCadastrar.Visible = true;
             ArmadilhaDAO.ExcluirArmadilha(id);
             PopularLvArmadilha(ArmadilhaDAO.ObterArmadilhas());
+            Response.Redirect("~/Paginas/Formularios/FrmArmadilha.aspx");
         }
 
         private void AlterarArmadilha(int id)

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstro.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstro" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstroEfeito.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstroEfeito" %>
 
 <!DOCTYPE html>
 
@@ -9,11 +9,11 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Gerenciar Monstro</title>
+    <title>Gerenciar Monstros de Efeitos</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="navbar-brand ps-2" >Gerenciar Monstro</div>
+        <div class="navbar-brand ps-2">Gerenciar Monstros de Efeitos</div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
             <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                        <li><a class="dropdown-item"  runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroEfeito.aspx">Gerenciar Monstro de efeito</a></li>
                     </ul>
                 </li>
@@ -37,7 +37,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="~/"  runat="server">Sair</a>
+                    <a class="nav-link" href="~/" runat="server">Sair</a>
                 </li>
             </ul>
 
@@ -46,7 +46,7 @@
     <form runat="server">
         <div class="container w-50 mt-4">
             <div class="mt-4">
-                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro</h1>
+                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro de efeito</h1>
             </div>
             <div class="mb-3">
                 <label for="txtMonstro" class="form-label" runat="server">Descrição</label>
@@ -59,11 +59,11 @@
 
             <div class="mb-3 text-center">
                 <label id="lblMensagem" runat="server"></label>
-                <a href="~/Paginas/Formularios/FrmMonstro.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro</a>
+                <a href="~/Paginas/Formularios/FrmMonstroEfeito.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro de efeito</a>
             </div>
-             
+
             <div class="container mt-4">
-                <h3 class="text-center mb-2">Monstros cadastrados</h3>
+                <h3 class="text-center mb-2">Monstros de efeitos cadastrados</h3>
                 <table class="table m-auto table-hover table-bordered text-center m-auto">
                     <thead class="thead-dark">
                         <tr>
@@ -72,37 +72,37 @@
                             <td colspan="3"><b>Ações</b></td>
                         </tr>
                     </thead>
-                    <asp:ListView runat="server" ID="lvMonstro">
+                    <asp:ListView runat="server" ID="lvMonstroEfeito">
                         <ItemTemplate>
                             <tr>
-                                <th><%#Eval("IdMonstro") %></th>
+                                <th><%#Eval("IdMonstroEfeito") %></th>
                                 <td><%#Eval("Descricao") %></td>
                                 <td>
                                     <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
                                         ID="btnVisualizar"
                                         ToolTip="Visualizar"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstro") %>'
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
                                         CommandName="Visualizar"
-                                        style="width: 20px" />
+                                        Style="width: 20px" />
                                 </td>
                                 <td>
                                     <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
                                         ID="btnAlterar"
                                         ToolTip="Alterar"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstro") %>'
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
                                         CommandName="Alterar"
-                                        style="width: 20px" />
+                                        Style="width: 20px" />
                                 </td>
                                 <td>
                                     <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
                                         ID="btnExcluir"
                                         ToolTip="Excluir"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstro") %>'
-                                        CommandName="Excluir" 
-                                        style="width: 20px" />
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandName="Excluir"
+                                        Style="width: 20px" />
                                 </td>
 
                             </tr>
@@ -115,7 +115,7 @@
 
             </div>
         </div>
-        <asp:HiddenField id="hfId" runat="server"/>
+        <asp:HiddenField ID="hfId" runat="server" />
 
     </form>
 
@@ -123,5 +123,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

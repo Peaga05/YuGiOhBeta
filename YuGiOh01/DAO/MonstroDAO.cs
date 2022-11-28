@@ -108,5 +108,22 @@ namespace YuGiOh01.DAO
             }
             return monstros;
         }
+
+        internal static Monstro ObterMonstro(string v)
+        {
+            Monstro monstro = null;
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    monstro = ctx.Monstros.FirstOrDefault(x => x.Descricao.ToLower() == v);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return monstro;
+        }
     }
 }

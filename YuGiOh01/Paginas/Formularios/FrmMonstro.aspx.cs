@@ -110,7 +110,7 @@ namespace YuGiOh01.Paginas.Formularios
             }
             catch (DbUpdateException dbUpEx)
             {
-                lblMensagem.InnerText = "Monstro não pode ser excluído pois está em uso";
+                lblMensagem.InnerText = "Esse monstro não pode ser excluído pois está em uso";
             }
             catch (Exception ex)
             {
@@ -144,8 +144,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void ExcluirMonstro(int id)
         {
-            txtMonstro.Enabled = true;
-            btnCadastrar.Visible = true;
+            
             try
             {
                 MonstroDAO.ExcluirMonstro(id);
@@ -154,6 +153,7 @@ namespace YuGiOh01.Paginas.Formularios
             {
                 throw ex;
             }
+            Response.Redirect("~/Paginas/Formularios/FrmMonstro.aspx");
         }
     }
 }

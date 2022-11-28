@@ -80,6 +80,7 @@
     <Content Include="Assets\Images\update.png" />
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
+    <Content Include="Paginas\Formularios\FrmMonstroEfeito.aspx" />
     <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
     <Content Include="Paginas\Home.aspx" />
@@ -106,6 +107,7 @@
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\MonstroDAO.cs" />
+    <Compile Include="DAO\MonstroEfeitoDAO.cs" />
     <Compile Include="DAO\TipoCartaDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -135,6 +137,13 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMonstro.aspx.designer.cs">
       <DependentUpon>FrmMonstro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroEfeito.aspx.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroEfeito.aspx.designer.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmTipoCarta.aspx.cs">
       <DependentUpon>FrmTipoCarta.aspx</DependentUpon>

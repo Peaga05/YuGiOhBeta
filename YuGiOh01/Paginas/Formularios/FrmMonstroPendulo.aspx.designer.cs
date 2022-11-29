@@ -11,7 +11,7 @@ namespace YuGiOh01.Paginas.Formularios
 {
 
 
-    public partial class FrmMonstro
+    public partial class FrmMonstroPendulo
     {
 
         /// <summary>
@@ -60,13 +60,13 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnNovoMonstro;
 
         /// <summary>
-        /// Controle lvMonstro.
+        /// Controle lvMonstroPendulos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvMonstro;
+        protected global::System.Web.UI.WebControls.ListView lvMonstroPendulos;
 
         /// <summary>
         /// Controle hfId.

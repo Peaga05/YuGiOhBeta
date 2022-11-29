@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmTipoCarta.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmTipoCarta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstroEfeito.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstroEfeito" %>
 
 <!DOCTYPE html>
 
@@ -9,11 +9,11 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Gerenciar Tipo Carta</title>
+    <title>Gerenciar Monstros de Efeitos</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="navbar-brand ps-2">Gerenciar Tipo Carta</div>
+        <div class="navbar-brand ps-2">Gerenciar Monstros de Efeitos</div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
             <span class="navbar-toggler-icon"></span>
@@ -38,20 +38,20 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="~/"  runat="server">Sair</a>
+                    <a class="nav-link" href="~/" runat="server">Sair</a>
                 </li>
             </ul>
 
         </div>
     </nav>
-    <form id="form1" runat="server">
+    <form runat="server">
         <div class="container w-50 mt-4">
             <div class="mt-4">
-                <h1 runat="server" id="h1Titulo" class="text-center">Cadastrar Tipo Carta</h1>
+                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro de efeito</h1>
             </div>
             <div class="mb-3">
-                <label for="txtUser" class="form-label" runat="server">Descrição</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtTipoCarta" />
+                <label for="txtMonstro" class="form-label" runat="server">Descrição</label>
+                <asp:TextBox runat="server" class="form-control" ID="txtMonstro" />
             </div>
 
             <div class="mb-3">
@@ -60,13 +60,11 @@
 
             <div class="mb-3 text-center">
                 <label id="lblMensagem" runat="server"></label>
-                <a href="~/Paginas/Formularios/FrmTipoCarta.aspx" id="linkCad" runat="server" visible="false">Cadastrar novo tipo de carta</a>
+                <a href="~/Paginas/Formularios/FrmMonstroEfeito.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro de efeito</a>
             </div>
 
             <div class="container mt-4">
-
-                <h3 class="text-center mb-2">Tipos de Cartas Cadastradas</h3>
-
+                <h3 class="text-center mb-2">Monstros de efeitos cadastrados</h3>
                 <table class="table m-auto table-hover table-bordered text-center m-auto">
                     <thead class="thead-dark">
                         <tr>
@@ -75,64 +73,57 @@
                             <td colspan="3"><b>Ações</b></td>
                         </tr>
                     </thead>
-                    <asp:ListView ID="lvlTipoCartas" runat="server">
+                    <asp:ListView runat="server" ID="lvMonstroEfeito">
                         <ItemTemplate>
                             <tr>
-                                <td><%# Eval("IdTipoCarta")%></td>
-                                <td><%# Eval("Descricao")%></td>
-
+                                <th><%#Eval("IdMonstroEfeito") %></th>
+                                <td><%#Eval("Descricao") %></td>
                                 <td>
-                                    <asp:ImageButton
-                                        runat="server"
+                                    <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
                                         ID="btnVisualizar"
-                                        ImageUrl="../../Assets/Images/search.png"
                                         ToolTip="Visualizar"
                                         OnCommand="btnAcoes_Command"
-                                        Style="width: 20px;"
-                                        CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Visualizar" />
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandName="Visualizar"
+                                        Style="width: 20px" />
                                 </td>
-
                                 <td>
-                                    <asp:ImageButton
-                                        runat="server"
+                                    <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
                                         ID="btnAlterar"
-                                        ImageUrl="../../Assets/Images/update.png"
                                         ToolTip="Alterar"
                                         OnCommand="btnAcoes_Command"
-                                        Style="width: 20px;"
-                                        CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Alterar" />
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandName="Alterar"
+                                        Style="width: 20px" />
                                 </td>
-
                                 <td>
-                                    <asp:ImageButton
-                                        runat="server"
+                                    <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
                                         ID="btnExcluir"
-                                        ImageUrl="~/Assets/Images/delete.png"
                                         ToolTip="Excluir"
                                         OnCommand="btnAcoes_Command"
-                                        Style="width: 20px;"
-                                        CommandArgument='<%# Eval("IdTipoCarta")%>'
-                                        CommandName="Excluir" />
+                                        CommandArgument='<%#Eval("IdMonstroEfeito") %>'
+                                        CommandName="Excluir"
+                                        Style="width: 20px" />
                                 </td>
+
                             </tr>
                         </ItemTemplate>
                         <EmptyDataTemplate>
-                            Não existe tipo de carta cadastrada!
+                            <b>Ainda não foi cadastrado nenhum monstro</b>
                         </EmptyDataTemplate>
                     </asp:ListView>
-
                 </table>
+
             </div>
-
         </div>
-
         <asp:HiddenField ID="hfId" runat="server" />
 
     </form>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -33,17 +33,14 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                        <li><a class="dropdown-item" href="#">Gerenciar Tipo Carta</a></li>
-                        <li><a class="dropdown-item" href="#">Gerenciar Armadilhas</a></li>
+                        <li><a class="dropdown-item" href="~/Paginas/Formularios/FrmArmadilha.aspx">Gerenciar Armadilhas</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroEfeito.aspx">Gerenciar Monstro de Efeito</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroPendulo.aspx">Gerenciar Monstro Pêndulo</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Gerenciar Carta</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-toggle="tab">Sair</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="">Gerenciar Carta</a></li>                                      
+                <li class="nav-item"><a class="nav-link" href="~/" runat="server">Sair</a></li>     
             </ul>
 
         </div>

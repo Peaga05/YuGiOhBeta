@@ -83,6 +83,8 @@
     <Content Include="Paginas\Formularios\FrmMagias.aspx" />
     <Content Include="Paginas\Formularios\FrmAtributo.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
+    <Content Include="Paginas\Formularios\FrmMonstroEfeito.aspx" />
+    <Content Include="Paginas\Formularios\FrmMonstroPendulo.aspx" />
     <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmUsuario.aspx" />
     <Content Include="Paginas\Home.aspx" />
@@ -110,6 +112,8 @@
     </Compile>
     <Compile Include="DAO\AtributoDAO.cs" />
     <Compile Include="DAO\MonstroDAO.cs" />
+    <Compile Include="DAO\MonstroEfeitoDAO.cs" />
+    <Compile Include="DAO\MonstroPenduloDAO.cs" />
     <Compile Include="DAO\TipoCartaDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -160,6 +164,20 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMonstro.aspx.designer.cs">
       <DependentUpon>FrmMonstro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroEfeito.aspx.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroEfeito.aspx.designer.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroPendulo.aspx.cs">
+      <DependentUpon>FrmMonstroPendulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmMonstroPendulo.aspx.designer.cs">
+      <DependentUpon>FrmMonstroPendulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmTipoCarta.aspx.cs">
       <DependentUpon>FrmTipoCarta.aspx</DependentUpon>

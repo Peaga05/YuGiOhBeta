@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace YuGiOh01.DAO
 {
@@ -34,6 +39,91 @@ namespace YuGiOh01.DAO
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static void AlterarMonstro(Monstro monstro)
+        {
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    var monstroAlterado = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == x.IdMonstro);
+                    monstroAlterado.Descricao = monstro.Descricao;
+                    ctx.SaveChanges();
+                }
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ExcluirMonstro(int id)
+        {
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    var monstro = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == id);
+                    ctx.Monstros.Remove(monstro);
+                    ctx.SaveChanges();
+                }
+            }catch(DbUpdateException dbUpEx)
+            {
+                throw dbUpEx;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static Monstro ObterMonstro(int id)
+        {
+            Monstro monstro = null;
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    monstro = ctx.Monstros.FirstOrDefault(x => x.IdMonstro == id);
+                }
+            }catch( Exception ex)
+            {
+                throw ex;
+            }
+            return monstro;
+        }
+
+        public static List<Monstro> ObterMonstros()
+        {
+            List<Monstro> monstros = null;
+            try
+            {
+                using(var ctx = new YuGiOhBDEntities())
+                {
+                    monstros = ctx.Monstros.OrderBy(x => x.Descricao).ToList();
+                }
+            }catch(Exception ex)
+            {
+                throw;
+            }
+            return monstros;
+        }
+
+        internal static Monstro ObterMonstro(string v)
+        {
+            Monstro monstro = null;
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    monstro = ctx.Monstros.FirstOrDefault(x => x.Descricao.ToLower() == v);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return monstro;
         }
     }
 }

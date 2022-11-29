@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMagias.aspx.designer.cs">
       <DependentUpon>FrmMagias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Formularios\FrmAtributo.aspx.cs">
       <DependentUpon>FrmAtributo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

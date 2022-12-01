@@ -109,7 +109,7 @@ namespace YuGiOh01.Paginas.Formularios
             }
             catch (DbUpdateException sqlEx)
             {
-                lblMensagem.InnerText = "Esse tipo de carta está em uso!";
+                lblMensagem.InnerText = "Esse ícone está em uso!";
             }
             catch (Exception)
             {
@@ -129,10 +129,9 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void ExcluirIcone(int id)
         {
-            txtDescricaoIcone.Enabled = true;
-            btnCadastrarIcone.Visible = true;
             IconeDAO.ExcluirIcone(id);
             PopularLvIcone(IconeDAO.ObterIcones());
+            Response.Redirect("~/Paginas/Formularios/FrmIcone.aspx")
         }
 
         private void AlterarIcone (int id)

@@ -80,6 +80,7 @@
     <Content Include="Assets\Images\update.png" />
     <Content Include="Default.aspx" />
     <Content Include="Paginas\Formularios\FrmArmadilha.aspx" />
+    <Content Include="Paginas\Formularios\FrmCarta.aspx" />
     <Content Include="Paginas\Formularios\FrmMagias.aspx" />
     <Content Include="Paginas\Formularios\FrmAtributo.aspx" />
     <Content Include="Paginas\Formularios\FrmMonstro.aspx" />
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="Paginas\Formularios\FrmArmadilha.aspx.designer.cs">
       <DependentUpon>FrmArmadilha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmCarta.aspx.cs">
+      <DependentUpon>FrmCarta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmCarta.aspx.designer.cs">
+      <DependentUpon>FrmCarta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Formularios\FrmMagias.aspx.cs">
       <DependentUpon>FrmMagias.aspx</DependentUpon>

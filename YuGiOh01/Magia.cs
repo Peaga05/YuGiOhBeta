@@ -14,10 +14,18 @@ namespace YuGiOh01
     
     public partial class Magia
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Magia()
+        {
+            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
+        }
+    
         public int IdMagias { get; set; }
         public string Descricao { get; set; }
         public int IdTipoCarta { get; set; }
     
         public virtual TipoCarta TipoCarta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

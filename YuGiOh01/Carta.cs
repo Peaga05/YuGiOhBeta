@@ -14,6 +14,12 @@ namespace YuGiOh01
     
     public partial class Carta
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Carta()
+        {
+            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
+        }
+    
         public int IdCarta { get; set; }
         public string Nome { get; set; }
         public Nullable<int> Nivel { get; set; }
@@ -28,5 +34,7 @@ namespace YuGiOh01
         public virtual Atributo Atributo { get; set; }
         public virtual Icone Icone { get; set; }
         public virtual TipoCarta TipoCarta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

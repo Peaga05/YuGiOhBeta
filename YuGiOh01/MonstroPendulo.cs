@@ -14,10 +14,18 @@ namespace YuGiOh01
     
     public partial class MonstroPendulo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MonstroPendulo()
+        {
+            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
+        }
+    
         public int IdMonstroPendulo { get; set; }
         public string Descricao { get; set; }
         public int IdMonstroEfeito { get; set; }
     
         public virtual TipoMonstroEfeito TipoMonstroEfeito { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

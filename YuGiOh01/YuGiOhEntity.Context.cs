@@ -36,5 +36,6 @@ namespace YuGiOh01
         public virtual DbSet<TipoCarta> TipoCartas { get; set; }
         public virtual DbSet<TipoMonstroEfeito> TipoMonstrosEfeitos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<CartaTipoCarta> CartasTipoCartas { get; set; }
     }
 }

@@ -131,7 +131,7 @@ namespace YuGiOh01.Paginas.Formularios
         {
             IconeDAO.ExcluirIcone(id);
             PopularLvIcone(IconeDAO.ObterIcones());
-            Response.Redirect("~/Paginas/Formularios/FrmIcone.aspx")
+            Response.Redirect("~/Paginas/Formularios/FrmIcone.aspx");
         }
 
         private void AlterarIcone (int id)

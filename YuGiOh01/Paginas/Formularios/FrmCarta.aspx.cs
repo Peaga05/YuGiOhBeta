@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -82,7 +83,7 @@ namespace YuGiOh01.Paginas.Formularios
         {
             ddlMagias.DataSource = magias.OrderBy(x => x.IdMagias);
             ddlMagias.DataTextField = "Descricao";
-            ddlMagias.DataValueField = "IdMagia";
+            ddlMagias.DataValueField = "IdMagias";
             ddlMagias.DataBind();
             ddlMagias.Items.Insert(0, "Selecione ...");
         }
@@ -233,27 +234,18 @@ namespace YuGiOh01.Paginas.Formularios
 
                 }
 
-
-
-
-
-
-                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "monstro")
-                {
-                    //carta;
-                    
-                }
-
-                lblMensagem.InnerText = ddlTipoCarta.SelectedItem.Text;
-
-
+            }
+            catch (DbUpdateException dbUpEx)
+            {
+                lblMensagem.InnerHtml = "<b>Por favor preencha os campos obrigatórios!</b>";
             }
             catch(Exception ex)
             {
                 lblMensagem.InnerText = "Ocorreu um erro ao realizar a operação " + ex.Message;
             }
 
-            
+            PopularLvCarta(CartaDAO.ObterCartas());
+
         }
 
         protected void btnAcoes_Command(object sender, CommandEventArgs e)
@@ -273,9 +265,6 @@ namespace YuGiOh01.Paginas.Formularios
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "magias")
                 {
                     slMagias.Attributes.CssStyle.Value = "display:block";
-                }
-                else
-                {
                     slMonstro.Attributes.CssStyle.Value = "display:none";
                     slArmadilha.Attributes.CssStyle.Value = "display:none";
                     slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
@@ -284,9 +273,6 @@ namespace YuGiOh01.Paginas.Formularios
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {
                     slArmadilha.Attributes.CssStyle.Value = "display:block";
-                }
-                else
-                {
                     slMonstro.Attributes.CssStyle.Value = "display:none";
                     slMagias.Attributes.CssStyle.Value = "display:none";
                     slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
@@ -314,17 +300,11 @@ namespace YuGiOh01.Paginas.Formularios
                         slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
                         slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
                     }
-
-                }
-                else
-                {
                     slMagias.Attributes.CssStyle.Value = "display:none";
                     slArmadilha.Attributes.CssStyle.Value = "display:none";
-                    slMonstro.Attributes.CssStyle.Value = "display:none";
-                    slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
-                    slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
 
                 }
+
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "magias" || ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {

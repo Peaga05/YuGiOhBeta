@@ -39,7 +39,7 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 else
                 {
-                    TipoCarta tc = TipoCartaDAO.ObterTipoCarta("Magia");
+                    TipoCarta tc = TipoCartaDAO.ObterTipoCarta("Magias");
 
                     if (tc == null)
                     {

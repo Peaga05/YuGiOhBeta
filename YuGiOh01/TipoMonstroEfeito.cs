@@ -18,6 +18,7 @@ namespace YuGiOh01
         public TipoMonstroEfeito()
         {
             this.MonstroPenduloes = new HashSet<MonstroPendulo>();
+            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
         }
     
         public int IdMonstroEfeito { get; set; }
@@ -27,5 +28,7 @@ namespace YuGiOh01
         public virtual Monstro Monstro { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonstroPendulo> MonstroPenduloes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

@@ -11,27 +11,27 @@ using YuGiOh01.DAO;
 
 namespace YuGiOh01.Paginas.Formularios
 {
-    public partial class FrmAtributo : System.Web.UI.Page
+    public partial class FrmIcone : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                PopularLvAtributo(AtributoDAO.ObterAtributos());
+                PopularLvIcone(IconeDAO.ObterIcones());
 
             }
         }
 
-        private void PopularLvAtributo(List<Atributo> atributos)
+        private void PopularLvIcone(List<Icone> tipos)
         {
-            lvlAtributos.DataSource = atributos;
-            lvlAtributos.DataBind();
+            lvlIcone.DataSource = tipos;
+            lvlIcone.DataBind();
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            var descricao = txtAtributo.Text;
+            var descricao = txtDescricaoIcone.Text;
             var mensagem = "";
             try
             {
@@ -41,39 +41,37 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 else
                 {
-                    Atributo at = null;
+                    Icone ic = null;
 
 
-                    if (btnCadastrar.Text.ToLower() == "alterar")
+                    if (btnCadastrarIcone.Text.ToLower() == "alterar")
                     {
                         var id = Convert.ToInt32(hfId.Value);
-                        at = AtributoDAO.ObterAtributo(id);
-
-
+                        ic = IconeDAO.ObterIcone(id);
 
                     }
                     else
                     {
-                        at = new Atributo();
+                        ic = new Icone();
 
                     }
 
-                    at.Descricao = descricao;
+                    ic.Descricao = descricao;
 
-                    if (btnCadastrar.Text.ToLower() == "alterar")
+                    if (btnCadastrarIcone.Text.ToLower() == "alterar")
                     {
-                        AtributoDAO.AlterarAtributo(at);
-                        mensagem = "Atributo alterado com sucesso!";
+                        IconeDAO.AlterarIcone(ic);
+                        mensagem = "Ícone alterado com sucesso!";
                     }
                     else
                     {
-                        AtributoDAO.CadastrarAtributo(at);
-                        mensagem = "Atributo cadastrado com sucesso!";
+                        IconeDAO.CadastrarIcone(ic);
+                        mensagem = "Ícone cadastrado com sucesso!";
                     }
 
-                    PopularLvAtributo(AtributoDAO.ObterAtributos());
+                    PopularLvIcone(IconeDAO.ObterIcones());
 
-                    Response.Redirect("~/Paginas/Formularios/FrmAtributo.aspx");
+                    Response.Redirect("~/Paginas/Formularios/FrmIcone.aspx");
 
                 }
             }
@@ -98,59 +96,56 @@ namespace YuGiOh01.Paginas.Formularios
                 if (comando == "alterar")
                 {
 
-                    AlterarAtributo(id);
+                    AlterarIcone(id);
 
                 }
                 else if (comando == "excluir")
                 {
-                    ExcluirAtributo(id);
+                    ExcluirIcone(id);
                 }
                 else if (comando == "visualizar")
                 {
-                    VisualizarAtributo(id);
+                    VisualizarIcone(id);
                 }
 
             }
             catch (DbUpdateException sqlEx)
             {
-                lblMensagem.InnerText = "Esse atributo está em uso!";
+                lblMensagem.InnerText = "Esse ícone está em uso!";
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
 
+        private void VisualizarIcone(int id)
+        {
+            var icone = IconeDAO.ObterIcone(id);
+            txtDescricaoIcone.Text = icone.Descricao.ToString();
+            txtDescricaoIcone.Enabled = false;
+            btnCadastrarIcone.Visible = false;
 
         }
 
-        private void VisualizarAtributo(int id)
+        private void ExcluirIcone(int id)
         {
-            var atributo = AtributoDAO.ObterAtributo(id);
-            txtAtributo.Text = atributo.Descricao.ToString();
-            txtAtributo.Enabled = false;
-            btnCadastrar.Visible = false;
-
+            IconeDAO.ExcluirIcone(id);
+            PopularLvIcone(IconeDAO.ObterIcones());
+            Response.Redirect("~/Paginas/Formularios/FrmIcone.aspx");
         }
 
-        private void ExcluirAtributo(int id)
+        private void AlterarIcone (int id)
         {
-            txtAtributo.Enabled = true;
-            btnCadastrar.Visible = true;
-            AtributoDAO.ExcluirAtributo(id);
-            PopularLvAtributo(AtributoDAO.ObterAtributos());
-        }
+            txtDescricaoIcone.Enabled = true;
+            btnCadastrarIcone.Visible = true;
 
-        private void AlterarAtributo(int id)
-        {
-            txtAtributo.Enabled = true;
-            btnCadastrar.Visible = true;
+            var tipo = IconeDAO.ObterIcone(id);
+            txtDescricaoIcone.Text = tipo.Descricao.ToString();
 
-            var atributo = AtributoDAO.ObterAtributo(id);
-            txtAtributo.Text = atributo.Descricao.ToString();
-
-            btnCadastrar.Text = "Alterar";
-            h1Titulo.InnerText = "Alterando Atributo";
+            btnCadastrarIcone.Text = "Alterar";
+            titulo.InnerText = "Alterado Tipo Carta";
 
             hfId.Value = id.ToString();
         }
@@ -173,5 +168,4 @@ namespace YuGiOh01.Paginas.Formularios
 
         }
     }
-
 }

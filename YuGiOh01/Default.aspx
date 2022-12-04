@@ -26,7 +26,7 @@
                 <asp:TextBox TextMode="Password" runat="server" class="form-control" ID="txtSenha" />
             </div>
             <div class="mb-3 text-center">
-                <a href="~/Paginas/Formularios/FrmUsuario.aspx" runat="server" id="linkRegistrar">Registra-se</a>
+                <a href="~/Usuario" runat="server" id="linkRegistrar">Registra-se</a>
             </div>
             <asp:Button Text="Entrar" id="btnEntrar" runat="server" class="btn btn-primary w-100" OnClick="btnEntrar_Click" />
 

@@ -11,8 +11,17 @@ namespace YuGiOh01.Paginas.Formularios
 {
 
 
-    public partial class FrmMonstroPendulo
+    public partial class FrmIcone
     {
+
+        /// <summary>
+        /// Controle formIcone.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm formIcone;
 
         /// <summary>
         /// Controle btnSair.
@@ -24,31 +33,31 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.Button btnSair;
 
         /// <summary>
-        /// Controle h1Titulo.
+        /// Controle titulo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1Titulo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titulo;
 
         /// <summary>
-        /// Controle txtMonstro.
+        /// Controle txtDescricaoIcone.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMonstro;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricaoIcone;
 
         /// <summary>
-        /// Controle btnCadastrar.
+        /// Controle btnCadastrarIcone.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        protected global::System.Web.UI.WebControls.Button btnCadastrarIcone;
 
         /// <summary>
         /// Controle lblMensagem.
@@ -60,22 +69,22 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMensagem;
 
         /// <summary>
-        /// Controle btnNovoMonstro.
+        /// Controle linkCad.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnNovoMonstro;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkCad;
 
         /// <summary>
-        /// Controle lvMonstroPendulos.
+        /// Controle lvlIcone.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvMonstroPendulos;
+        protected global::System.Web.UI.WebControls.ListView lvlIcone;
 
         /// <summary>
         /// Controle hfId.

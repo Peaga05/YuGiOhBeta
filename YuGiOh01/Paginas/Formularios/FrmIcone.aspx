@@ -1,21 +1,21 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmMonstroPendulo.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmMonstroPendulo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmIcone.aspx.cs" Inherits="YuGiOh01.Paginas.Formularios.FrmIcone" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Gerenciar monstros pêndulos</title>
+    <title>Gerenciar Icone</title>
 </head>
 <body>
-    <form runat="server">
+    <form id="formIcone" runat="server">
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <div class="navbar-brand ps-2">Gerenciar Monstro Pendulo</div>
+            <div class="navbar-brand ps-2">Gerenciar Icone</div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
                 <span class="navbar-toggler-icon"></span>
@@ -23,6 +23,7 @@
 
             <div class="collapse navbar-collapse justify-content-end pe-1" id="myNav">
                 <ul class="navbar-nav">
+
 
                     <li class="nav-item">
                         <a class="nav-link" runat="server" href="~/Home">Home</a>
@@ -51,26 +52,29 @@
             </div>
         </nav>
 
+
         <div class="container w-50 mt-4">
             <div class="mt-4">
-                <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Monstro Pêndulo</h1>
+                <h1 runat="server" id="titulo" class="text-center">Cadastrar Icone</h1>
             </div>
             <div class="mb-3">
-                <label for="txtMonstro" class="form-label" runat="server">Descrição</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtMonstro" />
+                <label for="txtDescricaoIcone" class="form-label" runat="server">Descrição do Ícone</label>
+                <asp:TextBox runat="server" class="form-control" ID="txtDescricaoIcone" />
             </div>
 
             <div class="mb-3">
-                <asp:Button Text="Cadastrar" ID="btnCadastrar" runat="server" class="btn btn-primary w-100" OnClick="btnCadastrar_Click" />
+                <asp:Button Text="Cadastrar Icone" ID="btnCadastrarIcone" runat="server" class="btn btn-primary w-100" OnClick="btnCadastrar_Click" />
             </div>
 
             <div class="mb-3 text-center">
                 <label id="lblMensagem" runat="server"></label>
-                <a href="~/Paginas/Formularios/FrmMonstroPendulo.aspx" visible="false" id="btnNovoMonstro" runat="server">Cadastrar novo monstro pêndulo</a>
+                <a href="~/Paginas/Formularios/FrmIcone.aspx" id="linkCad" runat="server" visible="false">Cadastrar novo tipo de icone</a>
             </div>
 
             <div class="container mt-4">
-                <h3 class="text-center mb-2">Monstros pêndulos cadastrados</h3>
+
+                <h3 class="text-center mb-2">Tipos de Ícones Cadastrados</h3>
+
                 <table class="table m-auto table-hover table-bordered text-center m-auto">
                     <thead class="thead-dark">
                         <tr>
@@ -79,53 +83,62 @@
                             <td colspan="3"><b>Ações</b></td>
                         </tr>
                     </thead>
-                    <asp:ListView runat="server" ID="lvMonstroPendulos">
+                    <asp:ListView ID="lvlIcone" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <th><%#Eval("IdMonstroPendulo") %></th>
-                                <td><%#Eval("Descricao") %></td>
+                                <td><%# Eval("IdIcone")%></td>
+                                <td><%# Eval("Descricao")%></td>
+
                                 <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
+                                    <asp:ImageButton
+                                        runat="server"
                                         ID="btnVisualizar"
+                                        ImageUrl="../../Assets/Images/search.png"
                                         ToolTip="Visualizar"
                                         OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
-                                        CommandName="Visualizar"
-                                        Style="width: 20px" />
-                                </td>
-                                <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
-                                        ID="btnAlterar"
-                                        ToolTip="Alterar"
-                                        OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
-                                        CommandName="Alterar"
-                                        Style="width: 20px" />
-                                </td>
-                                <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
-                                        ID="btnExcluir"
-                                        ToolTip="Excluir"
-                                        OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdMonstroPendulo") %>'
-                                        CommandName="Excluir"
-                                        Style="width: 20px" />
+                                        Style="width: 20px;"
+                                        CommandArgument='<%# Eval("IdIcone")%>'
+                                        CommandName="Visualizar" />
                                 </td>
 
+                                <td>
+                                    <asp:ImageButton
+                                        runat="server"
+                                        ID="btnAlterar"
+                                        ImageUrl="../../Assets/Images/update.png"
+                                        ToolTip="Alterar"
+                                        OnCommand="btnAcoes_Command"
+                                        Style="width: 20px;"
+                                        CommandArgument='<%# Eval("IdIcone")%>'
+                                        CommandName="Alterar" />
+                                </td>
+
+                                <td>
+                                    <asp:ImageButton
+                                        runat="server"
+                                        ID="btnExcluir"
+                                        ImageUrl="~/Assets/Images/delete.png"
+                                        ToolTip="Excluir"
+                                        OnCommand="btnAcoes_Command"
+                                        Style="width: 20px;"
+                                        CommandArgument='<%# Eval("IdIcone")%>'
+                                        CommandName="Excluir" />
+                                </td>
                             </tr>
                         </ItemTemplate>
                         <EmptyDataTemplate>
-                            <b>Ainda não foi cadastrado nenhum monstro</b>
+                            Não existe ícone cadastrado!
                         </EmptyDataTemplate>
                     </asp:ListView>
-                </table>
 
+                </table>
             </div>
+
         </div>
+
         <asp:HiddenField ID="hfId" runat="server" />
 
     </form>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

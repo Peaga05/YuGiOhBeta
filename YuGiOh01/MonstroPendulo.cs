@@ -24,8 +24,8 @@ namespace YuGiOh01
         public string Descricao { get; set; }
         public int IdMonstroEfeito { get; set; }
     
-        public virtual TipoMonstroEfeito TipoMonstroEfeito { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
+        public virtual TipoMonstroEfeito TipoMonstroEfeito { get; set; }
     }
 }

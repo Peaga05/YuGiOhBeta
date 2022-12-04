@@ -17,8 +17,29 @@ namespace YuGiOh01.DAO
 			}
 			catch (Exception ex)
 			{
-
+				throw ex;
 			}
+        }
+
+        internal static void AtualizarLogAcesso(LogUsuario log)
+        {
+            try
+            {
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    var logVelho = ctx.LogUsuarios.FirstOrDefault(
+                            x => x.IdLog == log.IdLog
+                        );
+
+                    logVelho.DataSaida = log.DataSaida;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+				throw ex;
+
+            }
         }
 
         internal static void CadastrarLog(LogUsuario log)

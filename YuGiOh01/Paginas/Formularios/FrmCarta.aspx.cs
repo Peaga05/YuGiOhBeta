@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Threading;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using YuGiOh01.DAO;
@@ -135,8 +138,9 @@ namespace YuGiOh01.Paginas.Formularios
                 CartaTipoCarta ctc = null;
                 if (btnCadastrar.Text.ToLower() == "alterar")
                 {
-                    var id = Convert.ToInt32(hfId.Value);
-
+                    var id = Convert.ToInt32(hfIdCarta.Value);
+                    carta = CartaDAO.ObterCarta(id);
+                    ctc = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
                 }
                 else
                 {
@@ -184,13 +188,11 @@ namespace YuGiOh01.Paginas.Formularios
                 
                 if (btnCadastrar.Text.ToLower() == "alterar")
                 {
-
+                    carta = CartaDAO.AlterarCarta(carta);
                 }
                 else
                 {
                     carta = CartaDAO.CadastrarCarta(carta);
-                    
-
                 }
 
                 ctc.IdCarta = carta.IdCarta;
@@ -199,7 +201,7 @@ namespace YuGiOh01.Paginas.Formularios
 
                 if(ddlTipoCarta.SelectedItem.Text.ToLower() == "monstro")
                 {
-                    ctc.IdEspecifico = Convert.ToInt32(ddlMonstro.SelectedIndex);
+                    ctc.IdMonstro = Convert.ToInt32(ddlMonstro.SelectedIndex);
 
                     if (ddlMonstro.SelectedItem.Text.ToLower() == "efeito")
                     {
@@ -214,25 +216,27 @@ namespace YuGiOh01.Paginas.Formularios
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "magias")
                 {
-                    ctc.IdEspecifico = Convert.ToInt32(ddlMagias.SelectedIndex);
+                    ctc.IdMagia = Convert.ToInt32(ddlMagias.SelectedIndex);
                 }
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {
-                    ctc.IdEspecifico = Convert.ToInt32(ddlArmadilha.SelectedIndex);
+                    ctc.IdArmadilha = Convert.ToInt32(ddlArmadilha.SelectedIndex);
                 }
 
 
                 if (btnCadastrar.Text.ToLower() == "alterar")
                 {
-
+                    CartaTipoCartaDAO.AlterarCartaTipoCarta(ctc);
                 }
                 else
                 {
                     CartaTipoCartaDAO.CadastrarCartaTipoCarta(ctc);
 
-
                 }
+
+                PopularLvCarta(CartaDAO.ObterCartas());
+                Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
 
             }
             catch (DbUpdateException dbUpEx)
@@ -250,10 +254,83 @@ namespace YuGiOh01.Paginas.Formularios
 
         protected void btnAcoes_Command(object sender, CommandEventArgs e)
         {
+            var comando = e.CommandName.ToLower();
+            var id = Convert.ToInt32(e.CommandArgument);
+            if(comando == "alterar")
+            {
 
+                AlterarCarta(id);
+                btnNovaCarta.Visible = true;
+
+            }else if(comando == "visualizar")
+            {
+
+            }else if(comando == "excluir")
+            {
+                Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
+            }
         }
 
+        private void AlterarCarta(int id)
+        {
+            Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
 
+            var carta = CartaDAO.ObterCarta(id);
+            var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
+            PreencherDados(carta, cartaTipoCarta);
+            btnCadastrar.Text = "Alterar";
+            h1Titulo.InnerText = "Alterar Carta";
+            hfIdCarta.Value = carta.IdCarta.ToString();
+        }
+
+        private void PreencherDados(Carta carta, CartaTipoCarta cartaTipoCarta)
+        {
+            txtNomeCard.Text = carta.Nome.ToString();
+            ddlTipoCarta.SelectedValue = carta.IdTipoCarta.ToString();
+            txtNumeroCarta.Text = carta.NumeroCard.ToString();
+            txtDescricao.Text = carta.Descricao.ToString();
+
+            if (carta.Nivel.HasValue)
+            {
+                txtNivel.Text = carta.Nivel.ToString();
+            }
+            if (carta.IdAtributo.HasValue)
+            {
+                ddlAtributo.SelectedValue = carta.IdAtributo.ToString();
+            }
+            if (carta.PontosDefesa.HasValue)
+            {
+                txtPontoDefesa.Text = carta.PontosDefesa.ToString();
+            }
+            if (carta.PontosAtaque.HasValue)
+            {
+                txtPontoAtaque.Text = carta.PontosAtaque.ToString();
+            }
+            if (carta.IdIcone.HasValue)
+            {
+                ddlIcone.Text = carta.IdIcone.ToString();
+            }
+            if (cartaTipoCarta.IdMagia.HasValue)
+            {
+                ddlMagias.SelectedValue = cartaTipoCarta.IdMagia.ToString();
+            }
+            if (cartaTipoCarta.IdArmadilha.HasValue)
+            {
+                ddlArmadilha.SelectedValue = cartaTipoCarta.IdArmadilha.ToString();
+            }
+            if (cartaTipoCarta.IdMonstro.HasValue)
+            {
+                ddlMonstro.SelectedValue = cartaTipoCarta.IdMonstro.ToString();
+            }
+            if (cartaTipoCarta.IdMonstroEfeito.HasValue)
+            {
+                ddlMonstroEfeito.SelectedValue = cartaTipoCarta.IdMonstroEfeito.ToString();
+            }
+            if (cartaTipoCarta.IdMonstroPendulo.HasValue)
+            {
+                ddlMonstroPendulo.SelectedValue = cartaTipoCarta.IdMonstroPendulo.ToString();
+            }
+        }
 
         protected void ddlAcoes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -269,6 +346,11 @@ namespace YuGiOh01.Paginas.Formularios
                     slArmadilha.Attributes.CssStyle.Value = "display:none";
                     slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
                     slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
+                    ddlMonstro.SelectedIndex = 0;
+                    ddlArmadilha.SelectedIndex = 0;
+                    ddlMonstroEfeito.SelectedIndex = 0;
+                    ddlMonstroPendulo.SelectedIndex = 0;
+
                 }
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {
@@ -277,6 +359,10 @@ namespace YuGiOh01.Paginas.Formularios
                     slMagias.Attributes.CssStyle.Value = "display:none";
                     slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
                     slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
+                    ddlMonstro.SelectedIndex = 0;
+                    ddlMagias.SelectedIndex = 0;
+                    ddlMonstroEfeito.SelectedIndex = 0;
+                    ddlMonstroPendulo.SelectedIndex = 0;
                 }
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "monstro")
                 {
@@ -299,9 +385,16 @@ namespace YuGiOh01.Paginas.Formularios
                         slArmadilha.Attributes.CssStyle.Value = "display:none";
                         slMonstroEfeito.Attributes.CssStyle.Value = "display:none";
                         slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
+                        ddlMagias.SelectedIndex = 0;
+                        ddlArmadilha.SelectedIndex = 0;
+                        ddlMonstroEfeito.SelectedIndex = 0;
+                        ddlMonstroPendulo.SelectedIndex = 0;
                     }
                     slMagias.Attributes.CssStyle.Value = "display:none";
                     slArmadilha.Attributes.CssStyle.Value = "display:none";
+                    ddlMagias.SelectedIndex = 0;
+                    ddlArmadilha.SelectedIndex = 0;
+                    
 
                 }
 
@@ -333,6 +426,24 @@ namespace YuGiOh01.Paginas.Formularios
           
 
             
+
+        }
+
+        protected void btnSair_Click(object sender, EventArgs e)
+        {
+            var login = (String)Session["user"];
+            Session["user"] = null;
+            LogUsuario log = (LogUsuario)Session["idLog"];
+            Util.AtualizarUltimoAcesso(log);
+            FormsAuthentication.SetAuthCookie(login, false);
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie1.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie1);
+            SessionStateSection sessionStateSection = (SessionStateSection)WebConfigurationManager.GetSection("system.web/sessionState");
+            HttpCookie cookie2 = new HttpCookie(sessionStateSection.CookieName, "");
+            cookie2.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie2);
+            Response.Redirect("~/Default.aspx");
 
         }
     }

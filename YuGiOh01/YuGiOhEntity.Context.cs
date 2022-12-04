@@ -28,6 +28,7 @@ namespace YuGiOh01
         public virtual DbSet<Armadilha> Armadilhas { get; set; }
         public virtual DbSet<Atributo> Atributos { get; set; }
         public virtual DbSet<Carta> Cartas { get; set; }
+        public virtual DbSet<CartaTipoCarta> CartasTipoCartas { get; set; }
         public virtual DbSet<Icone> Icones { get; set; }
         public virtual DbSet<LogUsuario> LogUsuarios { get; set; }
         public virtual DbSet<Magia> Magias { get; set; }
@@ -36,6 +37,5 @@ namespace YuGiOh01
         public virtual DbSet<TipoCarta> TipoCartas { get; set; }
         public virtual DbSet<TipoMonstroEfeito> TipoMonstrosEfeitos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<CartaTipoCarta> CartasTipoCartas { get; set; }
     }
 }

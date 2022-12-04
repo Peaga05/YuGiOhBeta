@@ -17,18 +17,18 @@ namespace YuGiOh01
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipoMonstroEfeito()
         {
-            this.MonstroPenduloes = new HashSet<MonstroPendulo>();
             this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
+            this.MonstroPenduloes = new HashSet<MonstroPendulo>();
         }
     
         public int IdMonstroEfeito { get; set; }
         public string Descricao { get; set; }
         public int IdMonstro { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
         public virtual Monstro Monstro { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonstroPendulo> MonstroPenduloes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

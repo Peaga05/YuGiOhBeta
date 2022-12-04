@@ -25,22 +25,25 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="~/Paginas/Home.aspx">Home</a>
+                    <a class="nav-link" runat="server" href="~/Paginas/Home.aspx">Home</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gerenciar
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmArmadilha.aspx">Gerenciar Armadilhas</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmAtributo.aspx">Gerenciar Atributo</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmIcone.aspx">Gerenciar Icone</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMagias.aspx">Gerenciar Magias</a></li>
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                        <li><a class="dropdown-item" href="~/Paginas/Formularios/FrmArmadilha.aspx">Gerenciar Armadilhas</a></li>
-                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
                         <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroEfeito.aspx">Gerenciar Monstro de Efeito</a></li>
-                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroPendulo.aspx">Gerenciar Monstro Pêndulo</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroPendulo.aspx">Gerenciar Monstro PÃªndulo</a></li>
+                        <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="">Gerenciar Carta</a></li>                                      
-                <li class="nav-item"><a class="nav-link" href="~/" runat="server">Sair</a></li>     
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/Paginas/Formularios/FrmCarta.aspx">Gerenciar Carta</a></li>                                      
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Sair</a></li>     
             </ul>
 
         </div>

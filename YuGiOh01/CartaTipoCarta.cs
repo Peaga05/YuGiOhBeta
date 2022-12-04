@@ -17,7 +17,9 @@ namespace YuGiOh01
         public int IdCartaTipoCarta { get; set; }
         public int IdCarta { get; set; }
         public int IdTipoCarta { get; set; }
-        public int IdEspecifico { get; set; }
+        public Nullable<int> IdMagia { get; set; }
+        public Nullable<int> IdArmadilha { get; set; }
+        public Nullable<int> IdMonstro { get; set; }
         public Nullable<int> IdMonstroEfeito { get; set; }
         public Nullable<int> IdMonstroPendulo { get; set; }
     

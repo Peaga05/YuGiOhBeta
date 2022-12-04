@@ -213,13 +213,13 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
 
         /// <summary>
-        /// Controle txtImagemCarta.
+        /// Controle fuImagem.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImagemCarta;
+        protected global::System.Web.UI.WebControls.FileUpload fuImagem;
 
         /// <summary>
         /// Controle btnCadastrar.
@@ -258,16 +258,16 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.ListView lvCarta;
 
         /// <summary>
-        /// Controle hfIdCarta.
+        /// hfIdCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfIdCarta;
 
         /// <summary>
-        /// Controle hfIdCartaTipoCarta.
+        /// hfIdCartaTipoCarta control.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.

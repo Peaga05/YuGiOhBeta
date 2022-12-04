@@ -18,7 +18,7 @@ namespace YuGiOh01.Paginas.Formularios
         {
            
             if (!Page.IsPostBack)
-            {
+            { 
 
                 PopularLvCarta(CartaDAO.ObterCartas());
 
@@ -57,7 +57,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlAtributo(List<Atributo> atributos)
         {
-            ddlAtributo.DataSource = atributos.OrderBy(x => x.IdAtributo);
+            ddlAtributo.DataSource = atributos.OrderBy(x => x.Descricao);
             ddlAtributo.DataTextField = "Descricao";
             ddlAtributo.DataValueField = "IdAtributo";
             ddlAtributo.DataBind();
@@ -66,7 +66,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlIcones(List<Icone> icones)
         {
-            ddlIcone.DataSource = icones.OrderBy(x => x.IdIcone);
+            ddlIcone.DataSource = icones.OrderBy(x => x.Descricao);
             ddlIcone.DataTextField = "Descricao";
             ddlIcone.DataValueField = "IdIcone";
             ddlIcone.DataBind();
@@ -75,7 +75,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlTipoCarta(List<TipoCarta> tiposcartas)
         {
-            ddlTipoCarta.DataSource = tiposcartas.OrderBy(x => x.IdTipoCarta);
+            ddlTipoCarta.DataSource = tiposcartas.OrderBy(x => x.Descricao);
             ddlTipoCarta.DataTextField = "Descricao";
             ddlTipoCarta.DataValueField = "IdTipoCarta";
             ddlTipoCarta.DataBind();
@@ -84,7 +84,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlMagia(List<Magia> magias)
         {
-            ddlMagias.DataSource = magias.OrderBy(x => x.IdMagias);
+            ddlMagias.DataSource = magias.OrderBy(x => x.Descricao);
             ddlMagias.DataTextField = "Descricao";
             ddlMagias.DataValueField = "IdMagias";
             ddlMagias.DataBind();
@@ -93,7 +93,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlArmadilha(List<Armadilha> armadilhas)
         {
-            ddlArmadilha.DataSource = armadilhas.OrderBy(x => x.IdArmadilha);
+            ddlArmadilha.DataSource = armadilhas.OrderBy(x => x.Descricao);
             ddlArmadilha.DataTextField = "Descricao";
             ddlArmadilha.DataValueField = "IdArmadilha";
             ddlArmadilha.DataBind();
@@ -102,7 +102,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlMonstro(List<Monstro> monstros)
         {
-            ddlMonstro.DataSource = monstros.OrderBy(x => x.IdMonstro);
+            ddlMonstro.DataSource = monstros.OrderBy(x => x.Descricao);
             ddlMonstro.DataTextField = "Descricao";
             ddlMonstro.DataValueField = "IdMonstro";
             ddlMonstro.DataBind();
@@ -111,7 +111,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void PopularDdlMonstroEfeito(List<TipoMonstroEfeito> monstrosEfeitos)
         {
-            ddlMonstroEfeito.DataSource = monstrosEfeitos.OrderBy(x => x.IdMonstroEfeito);
+            ddlMonstroEfeito.DataSource = monstrosEfeitos.OrderBy(x => x.Descricao);
             ddlMonstroEfeito.DataTextField = "Descricao";
             ddlMonstroEfeito.DataValueField = "IdMonstroEfeito";
             ddlMonstroEfeito.DataBind();
@@ -148,9 +148,30 @@ namespace YuGiOh01.Paginas.Formularios
                     ctc = new CartaTipoCarta();
                 }
 
-                carta.Nome = txtNomeCard.Text;
-                carta.NumeroCard = Convert.ToInt32(txtNumeroCarta.Text);
-                carta.Descricao = txtDescricao.Text;
+                if(txtNomeCard.Text != "")
+                {
+                    carta.Nome = txtNomeCard.Text;
+                }
+                else
+                {
+                    mensagem = "Preencha o campo nome da carta</br>";
+                }
+                if(txtNumeroCarta.Text != "")
+                {
+                    carta.NumeroCard = Convert.ToInt32(txtNumeroCarta.Text);
+                }
+                else
+                {
+                    mensagem += "Preencha o campo numero da carta</br>";
+                }
+                if (txtDescricao.Text != "")
+                {
+                    carta.Descricao = txtDescricao.Text;
+                }
+                else
+                {
+                    mensagem  += "Preencha o campo descricão</br>";
+                }
 
                 if (txtNivel.Text != "")
                 {
@@ -167,85 +188,159 @@ namespace YuGiOh01.Paginas.Formularios
                 var idx = Convert.ToInt32(ddlTipoCarta.SelectedIndex);
                 if(idx > 0)
                 {
-                    carta.IdTipoCarta = Convert.ToInt32(ddlTipoCarta.SelectedIndex);
+                    carta.IdTipoCarta = Convert.ToInt32(ddlTipoCarta.SelectedValue);
+                }
+                else
+                {
+                    mensagem += "Selecione o tipo da carta</br>";
                 }
 
                 idx = Convert.ToInt32(ddlAtributo.SelectedIndex);
                 if (idx > 0)
                 {
-                    carta.IdAtributo = Convert.ToInt32(ddlAtributo.SelectedIndex);
+                    carta.IdAtributo = Convert.ToInt32(ddlAtributo.SelectedValue);
                     
                 }
 
                 idx = Convert.ToInt32(ddlIcone.SelectedIndex);
                 if(idx > 0)
                 {
-                    carta.IdIcone = Convert.ToInt32(ddlIcone.SelectedIndex);
+                    carta.IdIcone = Convert.ToInt32(ddlIcone.SelectedValue);
                 }
 
-                
 
-                
-                if (btnCadastrar.Text.ToLower() == "alterar")
+                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "monstro")
                 {
-                    carta = CartaDAO.AlterarCarta(carta);
-                }
-                else
-                {
-                    carta = CartaDAO.CadastrarCarta(carta);
-                }
-
-                ctc.IdCarta = carta.IdCarta;
-                ctc.IdTipoCarta = carta.IdTipoCarta;
-                
-
-                if(ddlTipoCarta.SelectedItem.Text.ToLower() == "monstro")
-                {
-                    ctc.IdMonstro = Convert.ToInt32(ddlMonstro.SelectedIndex);
-
-                    if (ddlMonstro.SelectedItem.Text.ToLower() == "efeito")
+                    idx = Convert.ToInt32(ddlMonstro.SelectedIndex);
+                    if (idx > 0)
                     {
-                        ctc.IdMonstroEfeito = Convert.ToInt32(ddlMonstroEfeito.SelectedIndex);
+                        ctc.IdMonstro = Convert.ToInt32(ddlMonstro.SelectedValue);
+                        ctc.IdMonstroEfeito = null;
+                        ctc.IdMonstroPendulo = null;
+                        ctc.IdMagia = null;
+                        ctc.IdArmadilha = null;
 
-                        if (ddlMonstroEfeito.SelectedItem.Text.ToLower() == "pêndulo")
+                        if (ddlMonstro.SelectedItem.Text.ToLower() == "efeito")
                         {
-                            ctc.IdMonstroPendulo = Convert.ToInt32(ddlMonstroPendulo.SelectedIndex);
+                            idx = Convert.ToInt32(ddlMonstroEfeito.SelectedIndex);
+                            if (idx > 0)
+                            {
+                                ctc.IdMonstroEfeito = Convert.ToInt32(ddlMonstroEfeito.SelectedValue);
+                                ctc.IdMonstroPendulo = null;
+
+                                if (ddlMonstroEfeito.SelectedItem.Text.ToLower() == "pêndulo")
+                                {
+                                    idx = Convert.ToInt32(ddlMonstroPendulo.SelectedIndex);
+                                    if(idx > 0)
+                                    {
+                                        ctc.IdMonstroPendulo = Convert.ToInt32(ddlMonstroPendulo.SelectedValue);
+                                    }
+                                    else
+                                    {
+                                        mensagem += "Selecione um monstro pêndulo</br>";
+                                    }   
+                                }
+                            }
+                            else
+                            {
+                                mensagem += "Selecione um monstro de efeito</br>";
+                            }                            
                         }
+                    }
+                    else
+                    {
+                        mensagem += "Selecione um monstro</br>";
                     }
                 }
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "magias")
                 {
-                    ctc.IdMagia = Convert.ToInt32(ddlMagias.SelectedIndex);
+                    idx = Convert.ToInt32(ddlMagias.SelectedIndex);
+                    if (idx > 0)
+                    {
+                        ctc.IdMagia = Convert.ToInt32(ddlMagias.SelectedValue);
+                        ctc.IdMonstroEfeito = null;
+                        ctc.IdMonstroPendulo = null;
+                        ctc.IdMonstro = null;
+                        ctc.IdArmadilha = null;
+                    }
+                    else
+                    {
+                        mensagem += "selecione um tipo de magia</br>";
+                    }
+                    
                 }
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {
-                    ctc.IdArmadilha = Convert.ToInt32(ddlArmadilha.SelectedIndex);
+                    idx = Convert.ToInt32(ddlArmadilha.SelectedIndex);
+                    if (idx > 0)
+                    {
+                        ctc.IdArmadilha = Convert.ToInt32(ddlArmadilha.SelectedValue);
+                        ctc.IdMonstroEfeito = null;
+                        ctc.IdMonstroPendulo = null;
+                        ctc.IdMagia = null;
+                        ctc.IdMonstro = null;
+                    }
+                    else
+                    {
+                        mensagem += "selecione um tipo de armadilha</br>";
+                    }
+                   
+                }
+                if (!fuImagem.HasFile)
+                {
+                    mensagem += "Cadastre uma imagem para a carta</br>";
                 }
 
-
-                if (btnCadastrar.Text.ToLower() == "alterar")
+                if(mensagem == "")
                 {
-                    CartaTipoCartaDAO.AlterarCartaTipoCarta(ctc);
+                    if (btnCadastrar.Text.ToLower() == "alterar")
+                    {
+                        carta = CartaDAO.AlterarCarta(carta);
+                    }
+                    else
+                    {
+                        carta = CartaDAO.CadastrarCarta(carta);
+                    }
+
+                    var arquivo = fuImagem.PostedFile;
+                    var map = MapPath("~/");
+                    var caminho = map + "Assets/Upload\\" + carta.IdCarta + ".png";
+                    arquivo.SaveAs(caminho);
+
+                    ctc.IdCarta = carta.IdCarta;
+                    ctc.IdTipoCarta = carta.IdTipoCarta;
+
+
+                    if (btnCadastrar.Text.ToLower() == "alterar")
+                    {
+                        CartaTipoCartaDAO.AlterarCartaTipoCarta(ctc);
+                    }
+                    else
+                    {
+                        CartaTipoCartaDAO.CadastrarCartaTipoCarta(ctc);
+
+                    }
+
+                    PopularLvCarta(CartaDAO.ObterCartas());
+                    Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
                 }
                 else
                 {
-                    CartaTipoCartaDAO.CadastrarCartaTipoCarta(ctc);
-
+                    lblMensagem.InnerHtml = mensagem;
                 }
 
-                PopularLvCarta(CartaDAO.ObterCartas());
-                Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
+               
 
             }
             catch (DbUpdateException dbUpEx)
             {
-                lblMensagem.InnerHtml = "<b>Por favor preencha os campos obrigatórios!</b>";
+                lblMensagem.InnerHtml += "<b>Por favor preencha os campos obrigatórios!</b>";
             }
             catch(Exception ex)
             {
-                lblMensagem.InnerText = "Ocorreu um erro ao realizar a operação " + ex.Message;
+                lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
             }
 
             PopularLvCarta(CartaDAO.ObterCartas());
@@ -261,8 +356,10 @@ namespace YuGiOh01.Paginas.Formularios
 
                 AlterarCarta(id);
                 btnNovaCarta.Visible = true;
+                ddlAcoes_SelectedIndexChanged(sender, e);
 
-            }else if(comando == "visualizar")
+            }
+            else if(comando == "visualizar")
             {
 
             }else if(comando == "excluir")
@@ -273,7 +370,7 @@ namespace YuGiOh01.Paginas.Formularios
 
         private void AlterarCarta(int id)
         {
-            Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
+            
 
             var carta = CartaDAO.ObterCarta(id);
             var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
@@ -310,6 +407,7 @@ namespace YuGiOh01.Paginas.Formularios
             {
                 ddlIcone.Text = carta.IdIcone.ToString();
             }
+
             if (cartaTipoCarta.IdMagia.HasValue)
             {
                 ddlMagias.SelectedValue = cartaTipoCarta.IdMagia.ToString();
@@ -352,7 +450,7 @@ namespace YuGiOh01.Paginas.Formularios
                     ddlMonstroPendulo.SelectedIndex = 0;
 
                 }
-                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
+                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha" )
                 {
                     slArmadilha.Attributes.CssStyle.Value = "display:block";
                     slMonstro.Attributes.CssStyle.Value = "display:none";

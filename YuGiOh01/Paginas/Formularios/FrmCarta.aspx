@@ -57,7 +57,7 @@
             </div>
             <div class="mb-3">
                 <label for="txtNomeCard" class="form-label" runat="server">Nome da Carta *</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtNomeCard" required />
+                <asp:TextBox runat="server" class="form-control" ID="txtNomeCard"  />
             </div>
 
             <div class="mb-3">
@@ -107,7 +107,7 @@
 
             <div class="mb-3">
                 <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" required TextMode="Number" />
+                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta"  TextMode="Number" />
             </div>
 
 
@@ -124,12 +124,12 @@
 
             <div class="mb-3">
                 <label for="txtDescricao" class="form-label" runat="server">Descrição *</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtDescricao" required />
+                <asp:TextBox runat="server" class="form-control" ID="txtDescricao"  />
             </div>
 
             <div class="mb-3">
                 <label for="txtImagemCarta" class="form-label" runat="server">Casdatrar uma imagem para carta</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtImagemCarta" />
+                <asp:FileUpload ID="fuImagem" runat="server"  class="form-control-file"/>
             </div>
 
             <div class="mb-3">
@@ -142,63 +142,63 @@
                 <label id="lblMensagem" runat="server"></label>
                 <a href="~/Paginas/Formularios/FrmCarta.aspx" visible="false" id="btnNovaCarta" runat="server">Cadastrar novo carta</a>
             </div>
+                <div class="container mt-4" runat="server">
+        <h3 class="text-center mb-2">Cartas cadastradas</h3>
+        <table class="table m-auto table-hover table-bordered text-center m-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <td><b>Código</b></td>
+                    <td><b>Nome da Carta</b></td>
+                    <td><b>Descrição</b></td>
+                    <td><b>Tipo da Carta</b></td>
+                    <td colspan="3"><b>Ações</b></td>
+                </tr>
+            </thead>
+            <asp:ListView runat="server" ID="lvCarta">
+                <ItemTemplate>
+                    <tr>
+                        <td><%#Eval("IdCarta") %></td>
+                        <td><%#Eval("Nome") %></td>
+                        <td><%#Eval("Descricao") %></td>
+                        <td><%#Eval("TipoCartaCarta") %></td>
+                        <td>
+                            <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
+                                ID="btnVisualizar"
+                                ToolTip="Visualizar"
+                                OnCommand="btnAcoes_Command"
+                                CommandArgument='<%#Eval("IdCarta") %>'
+                                CommandName="Visualizar"
+                                Style="width: 20px" />
+                        </td>
+                        <td>
+                            <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
+                                ID="btnAlterar"
+                                ToolTip="Alterar"
+                                OnCommand="btnAcoes_Command"
+                                CommandArgument='<%#Eval("IdCarta") %>'
+                                CommandName="Alterar"
+                                Style="width: 20px" />
+                        </td>
+                        <td>
+                            <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
+                                ID="btnExcluir"
+                                ToolTip="Excluir"
+                                OnCommand="btnAcoes_Command"
+                                CommandArgument='<%#Eval("IdCarta") %>'
+                                CommandName="Excluir"
+                                Style="width: 20px" />
+                        </td>
 
-            <div class="container mt-4">
-                <h3 class="text-center mb-2">Cartas cadastradas</h3>
-                <table class="table m-auto table-hover table-bordered text-center m-auto">
-                    <thead class="thead-dark">
-                        <tr>
-                            <td><b>Código</b></td>
-                            <td><b>Nome da Carta</b></td>
-                            <td><b>Descrição</b></td>
-                            <td><b>Tipo da Carta</b></td>
-                            <td colspan="3"><b>Ações</b></td>
-                        </tr>
-                    </thead>
-                    <asp:ListView runat="server" ID="lvCarta">
-                        <ItemTemplate>
-                            <tr>
-                                <th><%#Eval("IdCarta") %></th>
-                                <td><%#Eval("Nome") %></td>
-                                <td><%#Eval("Descricao") %></td>
-                                <td><%#Eval("TipoCartaCarta") %></td>
-                                <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
-                                        ID="btnVisualizar"
-                                        ToolTip="Visualizar"
-                                        OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdCarta") %>'
-                                        CommandName="Visualizar"
-                                        Style="width: 20px" />
-                                </td>
-                                <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
-                                        ID="btnAlterar"
-                                        ToolTip="Alterar"
-                                        OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdCarta") %>'
-                                        CommandName="Alterar"
-                                        Style="width: 20px" />
-                                </td>
-                                <td>
-                                    <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
-                                        ID="btnExcluir"
-                                        ToolTip="Excluir"
-                                        OnCommand="btnAcoes_Command"
-                                        CommandArgument='<%#Eval("IdCarta") %>'
-                                        CommandName="Excluir"
-                                        Style="width: 20px" />
-                                </td>
+                    </tr>
+                </ItemTemplate>
+                <EmptyDataTemplate>
+                    <b>Ainda não foi cadastrado nenhuma carta</b>
+                </EmptyDataTemplate>
+            </asp:ListView>
+        </table>
 
-                            </tr>
-                        </ItemTemplate>
-                        <EmptyDataTemplate>
-                            <b>Ainda não foi cadastrado nenhuma carta</b>
-                        </EmptyDataTemplate>
-                    </asp:ListView>
-                </table>
+    </div>
 
-            </div>
         </div>
         <asp:HiddenField ID="hfIdCarta" runat="server" />
         <asp:HiddenField ID="hfIdCartaTipoCarta" runat="server" />

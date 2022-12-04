@@ -125,7 +125,7 @@
 
             <div class="mb-3">
                 <label for="txtImagemCarta" class="form-label" runat="server">Casdatrar uma imagem para carta</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtImagemCarta" />
+                <asp:FileUpload ID="fuImagem" runat="server"  class="form-control-file"/>
             </div>
 
             <div class="mb-3">

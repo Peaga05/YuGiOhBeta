@@ -286,6 +286,10 @@ namespace YuGiOh01.Paginas.Formularios
                     }
                    
                 }
+                if (!fuImagem.HasFile)
+                {
+                    mensagem += "Cadastre uma imagem para a carta</br>";
+                }
 
                 if(mensagem == "")
                 {
@@ -298,8 +302,11 @@ namespace YuGiOh01.Paginas.Formularios
                         carta = CartaDAO.CadastrarCarta(carta);
                     }
 
+                    var arquivo = fuImagem.PostedFile;
+                    var map = MapPath("~/");
+                    var caminho = map + "Assets/Upload\\" + carta.IdCarta + ".png";
+                    arquivo.SaveAs(caminho);
 
-                    
                     ctc.IdCarta = carta.IdCarta;
                     ctc.IdTipoCarta = carta.IdTipoCarta;
 

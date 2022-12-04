@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="container mt-4">
+            <div class="container mt-4 w-50">
 
                 <h3 class="text-center mb-2">Tipos de Armadilhas Cadastradas</h3>
 

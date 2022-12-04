@@ -93,7 +93,7 @@
             <PropertyRef Name="IdTipoCarta" />
           </Key>
           <Property Name="IdTipoCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descricao" Type="nchar" MaxLength="255" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoMonstroEfeito">
           <Key>
@@ -392,8 +392,8 @@
           <Property Name="IdArmadilha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_Armadilha" FromRole="Armadilha" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="TipoCarta" Relationship="Self.FKCARTAIDCARTA" FromRole="Armadilha" ToRole="TipoCarta" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Armadilha" FromRole="Armadilha" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="Atributo">
           <Key>
@@ -420,27 +420,7 @@
           <NavigationProperty Name="Atributo" Relationship="Self.FK_Carta_Atributo" FromRole="Carta" ToRole="Atributo" />
           <NavigationProperty Name="Icone" Relationship="Self.FK_Carta_Icone" FromRole="Carta" ToRole="Icone" />
           <NavigationProperty Name="TipoCarta" Relationship="Self.FK_Carta_TipoCarta" FromRole="Carta" ToRole="TipoCarta" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_carta" FromRole="Carta" ToRole="CartaTipoCarta" />
-        </EntityType>
-        <EntityType Name="CartaTipoCarta">
-          <Key>
-            <PropertyRef Name="IdCartaTipoCarta" />
-          </Key>
-          <Property Name="IdCartaTipoCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdCarta" Type="Int32" Nullable="false" />
-          <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
-          <Property Name="IdMagia" Type="Int32" />
-          <Property Name="IdArmadilha" Type="Int32" />
-          <Property Name="IdMonstro" Type="Int32" />
-          <Property Name="IdMonstroEfeito" Type="Int32" />
-          <Property Name="IdMonstroPendulo" Type="Int32" />
-          <NavigationProperty Name="Armadilha" Relationship="Self.fk_cartaTipoCarta_Armadilha" FromRole="CartaTipoCarta" ToRole="Armadilha" />
-          <NavigationProperty Name="Carta" Relationship="Self.fk_cartaTipoCarta_carta" FromRole="CartaTipoCarta" ToRole="Carta" />
-          <NavigationProperty Name="Magia" Relationship="Self.fk_cartaTipoCarta_Magias" FromRole="CartaTipoCarta" ToRole="Magias" />
-          <NavigationProperty Name="Monstro" Relationship="Self.fk_cartaTipoCarta_Monstro" FromRole="CartaTipoCarta" ToRole="Monstro" />
-          <NavigationProperty Name="TipoMonstroEfeito" Relationship="Self.fk_cartaTipoCarta_MonstroEfeito" FromRole="CartaTipoCarta" ToRole="TipoMonstroEfeito" />
-          <NavigationProperty Name="MonstroPendulo" Relationship="Self.fk_cartaTipoCarta_MonstroPendulo" FromRole="CartaTipoCarta" ToRole="MonstroPendulo" />
-          <NavigationProperty Name="TipoCarta" Relationship="Self.fk_cartaTipoCarta_TipoCarta" FromRole="CartaTipoCarta" ToRole="TipoCarta" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_carta" FromRole="Carta" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="Icone">
           <Key>
@@ -467,8 +447,8 @@
           <Property Name="IdMagias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_Magias" FromRole="Magias" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="TipoCarta" Relationship="Self.FK_Magias_ToTable" FromRole="Magias" ToRole="TipoCarta" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Magias" FromRole="Magia" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="Monstro">
           <Key>
@@ -477,9 +457,9 @@
           <Property Name="IdMonstro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_Monstro" FromRole="Monstro" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="TipoCarta" Relationship="Self.fk_Monstro_TipoCarta" FromRole="Monstro" ToRole="TipoCarta" />
           <NavigationProperty Name="TipoMonstroEfeitoes" Relationship="Self.fk_MonstroEfeito_TipoMonstro" FromRole="Monstro" ToRole="TipoMonstroEfeito" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Monstro" FromRole="Monstro" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="MonstroPendulo">
           <Key>
@@ -488,20 +468,20 @@
           <Property Name="IdMonstroPendulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMonstroEfeito" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_MonstroPendulo" FromRole="MonstroPendulo" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="TipoMonstroEfeito" Relationship="Self.FK_MonstroPendulo_ToTable" FromRole="MonstroPendulo" ToRole="TipoMonstroEfeito" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_MonstroPendulo" FromRole="MonstroPendulo" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="TipoCarta">
           <Key>
             <PropertyRef Name="IdTipoCarta" />
           </Key>
           <Property Name="IdTipoCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Armadilhas" Relationship="Self.FKCARTAIDCARTA" FromRole="TipoCarta" ToRole="Armadilha" />
           <NavigationProperty Name="Cartas" Relationship="Self.FK_Carta_TipoCarta" FromRole="TipoCarta" ToRole="Carta" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_TipoCarta" FromRole="TipoCarta" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="Magias" Relationship="Self.FK_Magias_ToTable" FromRole="TipoCarta" ToRole="Magias" />
           <NavigationProperty Name="Monstroes" Relationship="Self.fk_Monstro_TipoCarta" FromRole="TipoCarta" ToRole="Monstro" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_TipoCarta" FromRole="TipoCarta" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="TipoMonstroEfeito">
           <Key>
@@ -510,9 +490,9 @@
           <Property Name="IdMonstroEfeito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdMonstro" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CartaTipoCartas" Relationship="Self.fk_cartaTipoCarta_MonstroEfeito" FromRole="TipoMonstroEfeito" ToRole="CartaTipoCarta" />
           <NavigationProperty Name="Monstro" Relationship="Self.fk_MonstroEfeito_TipoMonstro" FromRole="TipoMonstroEfeito" ToRole="Monstro" />
           <NavigationProperty Name="MonstroPenduloes" Relationship="Self.FK_MonstroPendulo_ToTable" FromRole="TipoMonstroEfeito" ToRole="MonstroPendulo" />
+          <NavigationProperty Name="CartaTipoCartas" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_MonstroEfeito" FromRole="TipoMonstroEfeito" ToRole="CartaTipoCarta" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -523,18 +503,6 @@
           <Property Name="Senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LogUsuarios" Relationship="Self.FK_LogUsuario_ToTable" FromRole="Usuario" ToRole="LogUsuario" />
         </EntityType>
-        <Association Name="fk_cartaTipoCarta_Armadilha">
-          <End Role="Armadilha" Type="Self.Armadilha" Multiplicity="0..1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Armadilha">
-              <PropertyRef Name="IdArmadilha" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdArmadilha" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FKCARTAIDCARTA">
           <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="1" />
           <End Role="Armadilha" Type="Self.Armadilha" Multiplicity="*" />
@@ -579,78 +547,6 @@
               <PropertyRef Name="IdTipoCarta" />
             </Principal>
             <Dependent Role="Carta">
-              <PropertyRef Name="IdTipoCarta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_carta">
-          <End Role="Carta" Type="Self.Carta" Multiplicity="1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Carta">
-              <PropertyRef Name="IdCarta" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdCarta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_Magias">
-          <End Role="Magias" Type="Self.Magia" Multiplicity="0..1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Magias">
-              <PropertyRef Name="IdMagias" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdMagia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_Monstro">
-          <End Role="Monstro" Type="Self.Monstro" Multiplicity="0..1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Monstro">
-              <PropertyRef Name="IdMonstro" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdMonstro" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_MonstroEfeito">
-          <End Role="TipoMonstroEfeito" Type="Self.TipoMonstroEfeito" Multiplicity="0..1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoMonstroEfeito">
-              <PropertyRef Name="IdMonstroEfeito" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdMonstroEfeito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_MonstroPendulo">
-          <End Role="MonstroPendulo" Type="Self.MonstroPendulo" Multiplicity="0..1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MonstroPendulo">
-              <PropertyRef Name="IdMonstroPendulo" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
-              <PropertyRef Name="IdMonstroPendulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cartaTipoCarta_TipoCarta">
-          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="1" />
-          <End Role="CartaTipoCarta" Type="Self.CartaTipoCarta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoCarta">
-              <PropertyRef Name="IdTipoCarta" />
-            </Principal>
-            <Dependent Role="CartaTipoCarta">
               <PropertyRef Name="IdTipoCarta" />
             </Dependent>
           </ReferentialConstraint>
@@ -719,7 +615,6 @@
           <EntitySet Name="Armadilhas" EntityType="Self.Armadilha" />
           <EntitySet Name="Atributos" EntityType="Self.Atributo" />
           <EntitySet Name="Cartas" EntityType="Self.Carta" />
-          <EntitySet Name="CartasTipoCartas" EntityType="Self.CartaTipoCarta" />
           <EntitySet Name="Icones" EntityType="Self.Icone" />
           <EntitySet Name="LogUsuarios" EntityType="Self.LogUsuario" />
           <EntitySet Name="Magias" EntityType="Self.Magia" />
@@ -728,10 +623,6 @@
           <EntitySet Name="TipoCartas" EntityType="Self.TipoCarta" />
           <EntitySet Name="TipoMonstrosEfeitos" EntityType="Self.TipoMonstroEfeito" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
-          <AssociationSet Name="fk_cartaTipoCarta_Armadilha" Association="Self.fk_cartaTipoCarta_Armadilha">
-            <End Role="Armadilha" EntitySet="Armadilhas" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
           <AssociationSet Name="FKCARTAIDCARTA" Association="Self.FKCARTAIDCARTA">
             <End Role="TipoCarta" EntitySet="TipoCartas" />
             <End Role="Armadilha" EntitySet="Armadilhas" />
@@ -747,30 +638,6 @@
           <AssociationSet Name="FK_Carta_TipoCarta" Association="Self.FK_Carta_TipoCarta">
             <End Role="TipoCarta" EntitySet="TipoCartas" />
             <End Role="Carta" EntitySet="Cartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_carta" Association="Self.fk_cartaTipoCarta_carta">
-            <End Role="Carta" EntitySet="Cartas" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_Magias" Association="Self.fk_cartaTipoCarta_Magias">
-            <End Role="Magias" EntitySet="Magias" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_Monstro" Association="Self.fk_cartaTipoCarta_Monstro">
-            <End Role="Monstro" EntitySet="Monstros" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_MonstroEfeito" Association="Self.fk_cartaTipoCarta_MonstroEfeito">
-            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstrosEfeitos" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_MonstroPendulo" Association="Self.fk_cartaTipoCarta_MonstroPendulo">
-            <End Role="MonstroPendulo" EntitySet="MonstrosPendulos" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cartaTipoCarta_TipoCarta" Association="Self.fk_cartaTipoCarta_TipoCarta">
-            <End Role="TipoCarta" EntitySet="TipoCartas" />
-            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
           </AssociationSet>
           <AssociationSet Name="FK_LogUsuario_ToTable" Association="Self.FK_LogUsuario_ToTable">
             <End Role="Usuario" EntitySet="Usuarios" />
@@ -792,7 +659,140 @@
             <End Role="TipoMonstroEfeito" EntitySet="TipoMonstrosEfeitos" />
             <End Role="MonstroPendulo" EntitySet="MonstrosPendulos" />
           </AssociationSet>
+          <EntitySet Name="CartasTipoCartas" EntityType="YuGiOhBDModel.CartaTipoCarta" />
+          <AssociationSet Name="fk_cartaTipoCarta_Armadilha" Association="YuGiOhBDModel.fk_cartaTipoCarta_Armadilha">
+            <End Role="Armadilha" EntitySet="Armadilhas" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_carta" Association="YuGiOhBDModel.fk_cartaTipoCarta_carta">
+            <End Role="Carta" EntitySet="Cartas" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_Magias" Association="YuGiOhBDModel.fk_cartaTipoCarta_Magias">
+            <End Role="Magia" EntitySet="Magias" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_Monstro" Association="YuGiOhBDModel.fk_cartaTipoCarta_Monstro">
+            <End Role="Monstro" EntitySet="Monstros" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_MonstroEfeito" Association="YuGiOhBDModel.fk_cartaTipoCarta_MonstroEfeito">
+            <End Role="TipoMonstroEfeito" EntitySet="TipoMonstrosEfeitos" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_MonstroPendulo" Association="YuGiOhBDModel.fk_cartaTipoCarta_MonstroPendulo">
+            <End Role="MonstroPendulo" EntitySet="MonstrosPendulos" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartaTipoCarta_TipoCarta" Association="YuGiOhBDModel.fk_cartaTipoCarta_TipoCarta">
+            <End Role="TipoCarta" EntitySet="TipoCartas" />
+            <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CartaTipoCarta">
+          <Key>
+            <PropertyRef Name="IdCartaTipoCarta" />
+          </Key>
+          <Property Name="IdCartaTipoCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCarta" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoCarta" Type="Int32" Nullable="false" />
+          <Property Name="IdMagia" Type="Int32" />
+          <Property Name="IdArmadilha" Type="Int32" />
+          <Property Name="IdMonstro" Type="Int32" />
+          <Property Name="IdMonstroEfeito" Type="Int32" />
+          <Property Name="IdMonstroPendulo" Type="Int32" />
+          <NavigationProperty Name="Armadilha" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Armadilha" FromRole="CartaTipoCarta" ToRole="Armadilha" />
+          <NavigationProperty Name="Carta" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_carta" FromRole="CartaTipoCarta" ToRole="Carta" />
+          <NavigationProperty Name="Magia" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Magias" FromRole="CartaTipoCarta" ToRole="Magia" />
+          <NavigationProperty Name="Monstro" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_Monstro" FromRole="CartaTipoCarta" ToRole="Monstro" />
+          <NavigationProperty Name="TipoMonstroEfeito" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_MonstroEfeito" FromRole="CartaTipoCarta" ToRole="TipoMonstroEfeito" />
+          <NavigationProperty Name="MonstroPendulo" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_MonstroPendulo" FromRole="CartaTipoCarta" ToRole="MonstroPendulo" />
+          <NavigationProperty Name="TipoCarta" Relationship="YuGiOhBDModel.fk_cartaTipoCarta_TipoCarta" FromRole="CartaTipoCarta" ToRole="TipoCarta" />
+        </EntityType>
+        <Association Name="fk_cartaTipoCarta_Armadilha">
+          <End Type="YuGiOhBDModel.Armadilha" Role="Armadilha" Multiplicity="0..1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Armadilha">
+              <PropertyRef Name="IdArmadilha" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdArmadilha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_carta">
+          <End Type="YuGiOhBDModel.Carta" Role="Carta" Multiplicity="1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carta">
+              <PropertyRef Name="IdCarta" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdCarta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_Magias">
+          <End Type="YuGiOhBDModel.Magia" Role="Magia" Multiplicity="0..1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magia">
+              <PropertyRef Name="IdMagias" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdMagia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_Monstro">
+          <End Type="YuGiOhBDModel.Monstro" Role="Monstro" Multiplicity="0..1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monstro">
+              <PropertyRef Name="IdMonstro" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdMonstro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_MonstroEfeito">
+          <End Type="YuGiOhBDModel.TipoMonstroEfeito" Role="TipoMonstroEfeito" Multiplicity="0..1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMonstroEfeito">
+              <PropertyRef Name="IdMonstroEfeito" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdMonstroEfeito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_MonstroPendulo">
+          <End Type="YuGiOhBDModel.MonstroPendulo" Role="MonstroPendulo" Multiplicity="0..1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonstroPendulo">
+              <PropertyRef Name="IdMonstroPendulo" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdMonstroPendulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartaTipoCarta_TipoCarta">
+          <End Type="YuGiOhBDModel.TipoCarta" Role="TipoCarta" Multiplicity="1" />
+          <End Type="YuGiOhBDModel.CartaTipoCarta" Role="CartaTipoCarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="CartaTipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -829,20 +829,6 @@
                 <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
                 <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
                 <ScalarProperty Name="IdIcone" ColumnName="IdIcone" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CartasTipoCartas">
-            <EntityTypeMapping TypeName="YuGiOhBDModel.CartaTipoCarta">
-              <MappingFragment StoreEntitySet="CartaTipoCarta">
-                <ScalarProperty Name="IdCartaTipoCarta" ColumnName="IdCartaTipoCarta" />
-                <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
-                <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
-                <ScalarProperty Name="IdMagia" ColumnName="IdMagia" />
-                <ScalarProperty Name="IdArmadilha" ColumnName="IdArmadilha" />
-                <ScalarProperty Name="IdMonstro" ColumnName="IdMonstro" />
-                <ScalarProperty Name="IdMonstroEfeito" ColumnName="IdMonstroEfeito" />
-                <ScalarProperty Name="IdMonstroPendulo" ColumnName="IdMonstroPendulo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -914,6 +900,20 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CartasTipoCartas">
+            <EntityTypeMapping TypeName="YuGiOhBDModel.CartaTipoCarta">
+              <MappingFragment StoreEntitySet="CartaTipoCarta">
+                <ScalarProperty Name="IdMonstroPendulo" ColumnName="IdMonstroPendulo" />
+                <ScalarProperty Name="IdMonstroEfeito" ColumnName="IdMonstroEfeito" />
+                <ScalarProperty Name="IdMonstro" ColumnName="IdMonstro" />
+                <ScalarProperty Name="IdArmadilha" ColumnName="IdArmadilha" />
+                <ScalarProperty Name="IdMagia" ColumnName="IdMagia" />
+                <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
+                <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
+                <ScalarProperty Name="IdCartaTipoCarta" ColumnName="IdCartaTipoCarta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

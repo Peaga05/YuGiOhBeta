@@ -19,9 +19,9 @@ namespace YuGiOh01
         {
             this.Armadilhas = new HashSet<Armadilha>();
             this.Cartas = new HashSet<Carta>();
+            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
             this.Magias = new HashSet<Magia>();
             this.Monstroes = new HashSet<Monstro>();
-            this.CartaTipoCartas = new HashSet<CartaTipoCarta>();
         }
     
         public int IdTipoCarta { get; set; }
@@ -32,10 +32,10 @@ namespace YuGiOh01
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carta> Cartas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Magia> Magias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Monstro> Monstroes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CartaTipoCarta> CartaTipoCartas { get; set; }
     }
 }

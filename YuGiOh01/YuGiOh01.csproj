@@ -128,6 +128,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ArmadilhaDAO.cs" />
+    <Compile Include="DAO\CartaDAO.cs" />
+    <Compile Include="DAO\CartaTipoCartaDAO.cs" />
     <Compile Include="Icone.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
@@ -143,9 +146,6 @@
     <Compile Include="MonstroPendulo.cs">
       <DependentUpon>YuGiOhEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAO\ArmadilhaDAO.cs" />
-    <Compile Include="DAO\CartaDAO.cs" />
-    <Compile Include="DAO\CartaTipoCartaDAO.cs" />
     <Compile Include="Paginas\Formularios\FrmArmadilha.aspx.cs">
       <DependentUpon>FrmArmadilha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,7 +269,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Assets\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

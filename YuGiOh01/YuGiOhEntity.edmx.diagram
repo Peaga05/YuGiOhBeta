@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="af4d75e3b6fc46d28c9dead07cf1538f" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="YuGiOhModel.Armadilha" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Atributo" Width="1.5" PointX="3.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Carta" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Icone" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.LogUsuario" Width="1.5" PointX="3.875" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Magia" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Monstro" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.MonstroPendulo" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.TipoCarta" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.TipoMonstroEfeito" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="YuGiOhModel.Usuario" Width="1.5" PointX="0.875" PointY="0.625" IsExpanded="true" />
-        <AssociationConnector Association="YuGiOhModel.FKCARTAIDCARTA" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_Carta_Atributo" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_Carta_Icone" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_Carta_TipoCarta" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_LogUsuario_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_Magias_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.fk_Monstro_TipoCarta" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.fk_MonstroEfeito_TipoMonstro" ManuallyRouted="false" />
-        <AssociationConnector Association="YuGiOhModel.FK_MonstroPendulo_ToTable" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="YuGiOhModel.CartaTipoCarta" Width="1.5" PointX="9.75" PointY="7.875" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_Armadilha" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_carta" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_Magias" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_Monstro" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_MonstroEfeito" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_MonstroPendulo" />
-        <AssociationConnector Association="YuGiOhModel.fk_cartaTipoCarta_TipoCarta" />
+      <Diagram DiagramId="cbb566d71b46478ba43f32b218848057" Name="Diagram1">
+        <EntityTypeShape EntityType="YuGiOhBDModel.Armadilha" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Atributo" Width="1.5" PointX="3.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Carta" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.CartaTipoCarta" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Icone" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.LogUsuario" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Magia" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Monstro" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.MonstroPendulo" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.TipoCarta" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.TipoMonstroEfeito" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YuGiOhBDModel.Usuario" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_Armadilha" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FKCARTAIDCARTA" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_Carta_Atributo" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_Carta_Icone" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_Carta_TipoCarta" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_carta" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_Magias" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_Monstro" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_MonstroEfeito" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_MonstroPendulo" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_cartaTipoCarta_TipoCarta" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_LogUsuario_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_Magias_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_Monstro_TipoCarta" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.fk_MonstroEfeito_TipoMonstro" ManuallyRouted="false" />
+        <AssociationConnector Association="YuGiOhBDModel.FK_MonstroPendulo_ToTable" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

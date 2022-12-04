@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
@@ -23,25 +23,26 @@
             <div class="collapse navbar-collapse justify-content-end pe-1" id="myNav">
                 <ul class="navbar-nav">
 
+
                     <li class="nav-item">
-                        <a class="nav-link" runat="server" href="~/Paginas/Home.aspx">Home</a>
+                        <a class="nav-link" runat="server" href="~/Home">Home</a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gerenciar
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmArmadilha.aspx">Gerenciar Armadilhas</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmAtributo.aspx">Gerenciar Atributo</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmIcone.aspx">Gerenciar Icone</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMagias.aspx">Gerenciar Magias</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstro.aspx">Gerenciar Monstro</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroEfeito.aspx">Gerenciar Monstro de Efeito</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmMonstroPendulo.aspx">Gerenciar Monstro Pendulo</a></li>
-                            <li><a class="dropdown-item" runat="server" href="~/Paginas/Formularios/FrmTipoCarta.aspx">Gerenciar Tipo Carta</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/Armadilha">Gerenciar Armadilhas</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/Atributo">Gerenciar Atributo</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/Icone">Gerenciar Icone</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/Magias">Gerenciar Magias</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/Monstro">Gerenciar Monstro</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/MonstroEfeito">Gerenciar Monstro de Efeito</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/MonstroPendulo">Gerenciar Monstro Pendulo</a></li>
+                            <li><a class="dropdown-item" runat="server" href="~/TipoCarta">Gerenciar Tipo Carta</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Paginas/Formularios/FrmCarta.aspx">Gerenciar Carta</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Carta">Gerenciar Carta</a></li>
                     <li class="nav-item">
                         <asp:Button Text="Sair" class="nav-link btn" runat="server" ID="btnSair" OnClick="btnSair_Click" />
                     </li>

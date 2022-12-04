@@ -47,7 +47,7 @@ namespace YuGiOh01
                         DAO.UsuarioDAO.CadastrarLog(log);
                         Session["idLog"] = log;
                         Session["user"] = login;
-                        Response.Redirect("~/Paginas/Home.aspx");
+                        Response.Redirect("~/Home");
                     }
                 }
             }

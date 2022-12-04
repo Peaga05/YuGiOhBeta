@@ -29,7 +29,7 @@
             </div>
 
             <div class="mb-3 text-center">
-                <a href="~/Default.aspx" runat="server" visible="false" id="linkLogin">Fazer login</a>
+                <a href="~/Login" runat="server" visible="false" id="linkLogin">Fazer login</a>
             </div>
             
             <div class="mb-3 text-center">

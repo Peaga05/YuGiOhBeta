@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\Documents\Coisas do IFES\Programação para Internet II\YuGiOhBeta\YuGiOh01\YuGiOhEntity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\note11\Source\Repos\YuGiOhBeta2\YuGiOh01\YuGiOhEntity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -23,7 +23,7 @@ namespace YuGiOh01
         public int IdCarta { get; set; }
         public string Nome { get; set; }
         public Nullable<int> Nivel { get; set; }
-        public int NumeroCard { get; set; }
+        public string NumeroCard { get; set; }
         public Nullable<int> PontosAtaque { get; set; }
         public Nullable<int> PontosDefesa { get; set; }
         public string Descricao { get; set; }

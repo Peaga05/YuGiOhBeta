@@ -107,7 +107,7 @@
 
             <div class="mb-3">
                 <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta"  TextMode="Number" />
+                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" />
             </div>
 
 

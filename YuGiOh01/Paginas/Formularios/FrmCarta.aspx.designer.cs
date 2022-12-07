@@ -258,16 +258,16 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.ListView lvCarta;
 
         /// <summary>
-        /// hfIdCarta control.
+        /// Controle hfIdCarta.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfIdCarta;
 
         /// <summary>
-        /// hfIdCartaTipoCarta control.
+        /// Controle hfIdCartaTipoCarta.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.

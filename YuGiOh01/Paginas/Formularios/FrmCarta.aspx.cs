@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -8,6 +9,7 @@ using System.Web.Configuration;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 using YuGiOh01.DAO;
 
 namespace YuGiOh01.Paginas.Formularios
@@ -158,7 +160,7 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 if(txtNumeroCarta.Text != "")
                 {
-                    carta.NumeroCard = Convert.ToInt32(txtNumeroCarta.Text);
+                    carta.NumeroCard = txtNumeroCarta.Text;
                 }
                 else
                 {
@@ -364,8 +366,39 @@ namespace YuGiOh01.Paginas.Formularios
 
             }else if(comando == "excluir")
             {
-                Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
+                ExcluirImagemCarta(id);
+                ExcluirCarta(id);
+                lblMensagem.InnerText = "Carta excluída com sucesso!";
+                Response.Redirect("~/Carta");
             }
+        }
+
+        private void ExcluirImagemCarta(int id)
+        {
+            try
+            {
+                FileInfo TheFile = new FileInfo(MapPath("~/") + "Assets/Upload\\" + id + ".png");
+                if (TheFile.Exists)
+                {
+                    File.Delete(MapPath("~/") + "Assets/Upload\\"+ id + ".png");
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
+            }
+
+        }
+
+        private void ExcluirCarta(int id)
+        {
+            CartaTipoCartaDAO.ExcluirCartaTipoCarta(id);
+            CartaDAO.ExcluirCarta(id);
+            PopularLvCarta(CartaDAO.ObterCartas());
         }
 
         private void AlterarCarta(int id)

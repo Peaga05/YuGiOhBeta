@@ -27,7 +27,7 @@
           <Property Name="IdCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Nivel" Type="int" />
-          <Property Name="NumeroCard" Type="int" Nullable="false" />
+          <Property Name="NumeroCard" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="PontosAtaque" Type="int" />
           <Property Name="PontosDefesa" Type="int" />
           <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
@@ -410,7 +410,7 @@
           <Property Name="IdCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nivel" Type="Int32" />
-          <Property Name="NumeroCard" Type="Int32" Nullable="false" />
+          <Property Name="NumeroCard" Type="String" Nullable="false" />
           <Property Name="PontosAtaque" Type="Int32" />
           <Property Name="PontosDefesa" Type="Int32" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -688,7 +688,7 @@
             <End Role="TipoCarta" EntitySet="TipoCartas" />
             <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="CartaTipoCarta">
           <Key>
             <PropertyRef Name="IdCartaTipoCarta" />
@@ -793,7 +793,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

@@ -158,7 +158,7 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 if(txtNumeroCarta.Text != "")
                 {
-                    carta.NumeroCard = Convert.ToInt32(txtNumeroCarta.Text);
+                    carta.NumeroCard = txtNumeroCarta.Text;
                 }
                 else
                 {

@@ -51,7 +51,7 @@
             </div>
         </nav>
 
-        <div class="container w-50 mt-4 mb-5">
+        <div class="container w-100 mt-4 mb-5">
             <div class="mt-4">
                 <h1 class="text-center" id="h1Titulo" runat="server">Cadastrar Carta</h1>
             </div>
@@ -144,7 +144,7 @@
             </div>
                 <div class="container mt-4" runat="server">
         <h3 class="text-center mb-2">Cartas cadastradas</h3>
-        <table class="table m-auto table-hover table-bordered text-center m-auto">
+        <table class="table m-auto table-hover table-bordered text-center m-auto ">
             <thead class="thead-dark">
                 <tr>
                     <td><b>Código</b></td>
@@ -154,21 +154,23 @@
                     <td colspan="3"><b>Ações</b></td>
                 </tr>
             </thead>
-            <asp:ListView runat="server" ID="lvCarta">
-                <ItemTemplate>
-                    <tr>
+            <asp:ListView runat="server" ID="lvCarta" >
+                <ItemTemplate >
+                    <tr >
                         <td><%#Eval("IdCarta") %></td>
                         <td><%#Eval("Nome") %></td>
                         <td><%#Eval("Descricao") %></td>
                         <td><%#Eval("TipoCartaCarta") %></td>
                         <td>
-                            <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server"
+                            <asp:ImageButton ImageUrl="~/Assets/Images/search.png" runat="server" 
                                 ID="btnVisualizar"
                                 ToolTip="Visualizar"
                                 OnCommand="btnAcoes_Command"
                                 CommandArgument='<%#Eval("IdCarta") %>'
                                 CommandName="Visualizar"
-                                Style="width: 20px" />
+                                Style="width: 20px" 
+                                />
+
                         </td>
                         <td>
                             <asp:ImageButton ImageUrl="~/Assets/Images/update.png" runat="server"
@@ -180,7 +182,7 @@
                                 Style="width: 20px" />
                         </td>
                         <td>
-                            <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server"
+                            <asp:ImageButton ImageUrl="~/Assets/Images/delete.png" runat="server" 
                                 ID="btnExcluir"
                                 ToolTip="Excluir"
                                 OnCommand="btnAcoes_Command"

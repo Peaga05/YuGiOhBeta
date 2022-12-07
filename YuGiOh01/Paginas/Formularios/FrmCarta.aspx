@@ -107,10 +107,10 @@
                     <asp:DropDownList runat="server" ID="ddlIcone" class="form-select w-100 p-2"></asp:DropDownList>
                 </div>
 
-                <div class="mb-3">
-                    <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
-                    <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" TextMode="Number" />
-                </div>
+            <div class="mb-3">
+                <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
+                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" />
+            </div>
 
 
 

@@ -147,7 +147,7 @@
             <div id="contentView" class="m-auto text-center h6" style="display: none" runat="server">
 
                 <div class="mb-3 ">
-                    <asp:Image ImageUrl="" ID="ImagemCard" runat="server" Style="width: 400px" />
+                    <asp:Image ImageUrl="" ID="ImagemCard" runat="server" class="w-50" />
                 </div>
 
                 <div class="mb-3 ">

@@ -90,6 +90,7 @@
     <Content Include="Paginas\Formularios\FrmMonstroPendulo.aspx" />
     <Content Include="Paginas\Formularios\FrmTipoCarta.aspx" />
     <Content Include="FrmUsuario.aspx" />
+    <Content Include="Paginas\Formularios\FrmVisualizar.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="YuGiOhEntity.Context.tt">
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\MagiasDAO.cs" />
+    <Compile Include="Paginas\Formularios\FrmVisualizar.aspx.cs">
+      <DependentUpon>FrmVisualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Formularios\FrmVisualizar.aspx.designer.cs">
+      <DependentUpon>FrmVisualizar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

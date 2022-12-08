@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace YuGiOh01.DAO
@@ -47,6 +48,31 @@ namespace YuGiOh01.DAO
                 throw ex;
             }
             return cartaCadastrada;
+        }
+
+        internal static void ExcluirCarta(int id)
+        {
+            try
+            {
+                
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    var carta = ctx.Cartas.FirstOrDefault(
+                            x => x.IdCarta == id
+                        );
+
+                    ctx.Cartas.Remove(carta);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (DbUpdateException sqlEx)
+            {
+                throw new DbUpdateException(sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         internal static Carta ObterCarta(int id)

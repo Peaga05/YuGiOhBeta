@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -8,6 +9,7 @@ using System.Web.Configuration;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 using YuGiOh01.DAO;
 
 namespace YuGiOh01.Paginas.Formularios
@@ -18,8 +20,8 @@ namespace YuGiOh01.Paginas.Formularios
         {
            
             if (!Page.IsPostBack)
-            { 
-
+            {
+              
                 PopularLvCarta(CartaDAO.ObterCartas());
 
                 PopularDdls(
@@ -357,20 +359,155 @@ namespace YuGiOh01.Paginas.Formularios
                 AlterarCarta(id);
                 btnNovaCarta.Visible = true;
                 ddlAcoes_SelectedIndexChanged(sender, e);
+                contentCad.Attributes.CssStyle.Value = "display:block";
+                contentView.Attributes.CssStyle.Value = "display:none";
 
             }
             else if(comando == "visualizar")
             {
-
-            }else if(comando == "excluir")
-            {
-                Response.Redirect("~/Paginas/Formularios/FrmCarta.aspx");
+                VisualizarCarta(id);
+                btnNovaCarta.Visible= true;
+                fuImagem.Visible= false;
+                txtImagemCarta.Visible= false;
             }
+            else if(comando == "excluir")
+            {
+                ExcluirImagemCarta(id);
+                ExcluirCarta(id);
+                lblMensagem.InnerText = "Carta excluída com sucesso!";
+                Response.Redirect("~/Carta");
+            }
+        }
+
+        private void VisualizarCarta(int id)
+        {
+            contentCad.Attributes.CssStyle.Value = "display:none";
+            contentView.Attributes.CssStyle.Value = "display:block";
+            var carta = CartaDAO.ObterCarta(id);
+            var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
+            
+            ImagemCard.Visible = true;
+            ImagemCard.ImageUrl = "~/Assets/Upload/" + carta.IdCarta + ".png";
+            txtNomeCard.Text = carta.Nome.ToString();
+            txtNivel.Text = carta.Nivel.ToString();
+            ddlAtributo.Text = carta.IdAtributo.ToString();
+            ddlTipoCarta.Text = carta.IdTipoCarta.ToString();
+            lblNivel.InnerHtml = "<b>" + carta.Nivel + "</b>";
+            lblAtributo.InnerHtml = "<b>" + carta.IdAtributo + "</b>";
+            
+            var idTipoCarta = TipoCartaDAO.ObterTipoCarta(carta.IdTipoCarta);
+            lblTipoCarta.InnerHtml= "<b>" + idTipoCarta.Descricao + "</b>";
+
+            if (cartaTipoCarta.IdMonstro != null)
+            {
+                
+                var idMonstro = Convert.ToInt32(cartaTipoCarta.IdMonstro);
+                contentMonstro.Attributes.CssStyle.Value = "display:inline";
+                contentMagia.Attributes.CssStyle.Value = "display:none";
+                contentArmadilha.Attributes.CssStyle.Value = "display:none";
+                var monstro = MonstroDAO.ObterMonstro(idMonstro);
+                lblMonstro.InnerHtml = "<b>" + monstro.Descricao + "</b>";
+
+                if (cartaTipoCarta.IdMonstroEfeito != null)
+                {
+                    var idEfeito = Convert.ToInt32(cartaTipoCarta.IdMonstroEfeito);
+                    contentEfeito.Attributes.CssStyle.Value = "displpay:flex";
+                    contentPendulo.Attributes.CssStyle.Value = "display:none";
+                    var efeito = MonstroEfeitoDAO.ObterMonstroEfeito(idEfeito);
+                    lblEfeito.InnerHtml = "<b>" + efeito.Descricao + "</b>";
+
+                    if (cartaTipoCarta.IdMonstroPendulo != null)
+                    {
+                        var idPendulo = Convert.ToInt32(cartaTipoCarta.IdMonstroPendulo);
+                        contentPendulo.Attributes.CssStyle.Value = "display:inline";
+                        var pendulo = MonstroPenduloDAO.ObterMonstroPendulo(idPendulo);
+                        lblPendulo.InnerHtml = "<b>" + pendulo.Descricao + "</b>";
+                    }
+                }
+                
+        private void ExcluirImagemCarta(int id)
+        {
+            try
+            {
+                FileInfo TheFile = new FileInfo(MapPath("~/") + "Assets/Upload\\" + id + ".png");
+                if (TheFile.Exists)
+                {
+                    File.Delete(MapPath("~/") + "Assets/Upload\\"+ id + ".png");
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
+            }
+
+        }
+
+        private void ExcluirCarta(int id)
+        {
+            CartaTipoCartaDAO.ExcluirCartaTipoCarta(id);
+            CartaDAO.ExcluirCarta(id);
+            PopularLvCarta(CartaDAO.ObterCartas());
+        }
+
+            }
+            if (cartaTipoCarta.IdArmadilha != null)
+            {
+
+                var idArmadilha = Convert.ToInt32(cartaTipoCarta.IdArmadilha);
+                contentMagia.Attributes.CssStyle.Value = "display:none";
+                contentArmadilha.Attributes.CssStyle.Value = "display:inline";
+                contentMonstro.Attributes.CssStyle.Value = "display:none";
+                contentEfeito.Attributes.CssStyle.Value = "display:none";
+                contentPendulo.Attributes.CssStyle.Value = "display:none";
+                var armadilha = ArmadilhaDAO.ObterArmadilha(idArmadilha);
+                lblArmadilha.InnerHtml = "<b>" + armadilha.Descricao + "</b>";
+
+            }
+            if (cartaTipoCarta.IdMagia != null)
+            {
+
+                var idMagia = Convert.ToInt32(cartaTipoCarta.IdMagia);
+                contentMagia.Attributes.CssStyle.Value = "display:inline";
+                contentArmadilha.Attributes.CssStyle.Value = "display:none";
+                contentMonstro.Attributes.CssStyle.Value = "display:none";
+                contentEfeito.Attributes.CssStyle.Value = "display:none";
+                contentPendulo.Attributes.CssStyle.Value = "display:none";
+                var magia = MagiasDAO.ObterMagia(idMagia);
+                lblMagia.InnerHtml = "<b>" + magia.Descricao + "</b>";
+
+            }
+
+
+            if (carta.IdAtributo != null)
+            {
+                var idAtributo = Convert.ToInt32(carta.IdAtributo);
+                lblAtributo.Attributes.CssStyle.Value = "display:inline";
+                var atributo = AtributoDAO.ObterAtributo(idAtributo);
+                lblAtributo.InnerHtml = "<b>" + atributo.Descricao + "</b>";
+            }
+
+            if (carta.IdIcone != null)
+            {
+                var idIcone = Convert.ToInt32(carta.IdIcone);
+                lblIconeTitle.Attributes.CssStyle.Value = "display:inline";
+                var icone = IconeDAO.ObterIcone(idIcone);
+                lblIcone.InnerHtml = "<b>" + icone.Descricao + "</b>";
+            }
+            lblNumCarta.InnerHtml = "<b>" + carta.NumeroCard + "</b>";
+            lblDesc.InnerHtml= "<b>" + carta.Descricao + "</b>";
+            lblPatk.InnerHtml = "<b>" + carta.PontosAtaque + "</b>";
+            lblpDfs.InnerHtml = "<b>" + carta.PontosDefesa + "</b>";
+
+            h1Titulo.InnerText = carta.Nome;
         }
 
         private void AlterarCarta(int id)
         {
-            
+          
 
             var carta = CartaDAO.ObterCarta(id);
             var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);

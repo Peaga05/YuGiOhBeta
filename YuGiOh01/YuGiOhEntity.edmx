@@ -688,7 +688,7 @@
             <End Role="TipoCarta" EntitySet="TipoCartas" />
             <End Role="CartaTipoCarta" EntitySet="CartasTipoCartas" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="CartaTipoCarta">
           <Key>
             <PropertyRef Name="IdCartaTipoCarta" />
@@ -793,7 +793,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

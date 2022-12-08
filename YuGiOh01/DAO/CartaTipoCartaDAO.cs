@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web.UI.WebControls.WebParts;
 
@@ -45,6 +46,31 @@ namespace YuGiOh01.DAO
 
 				throw ex;
 			}
+        }
+
+        internal static void ExcluirCartaTipoCarta(int id)
+        {
+            try
+            {
+
+                using (var ctx = new YuGiOhBDEntities())
+                {
+                    var cartaTipoCarta = ctx.CartasTipoCartas.FirstOrDefault(
+                            x => x.IdCartaTipoCarta == id
+                        );
+
+                    ctx.CartasTipoCartas.Remove(cartaTipoCarta);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (DbUpdateException sqlEx)
+            {
+                throw new DbUpdateException(sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         internal static CartaTipoCarta ObterCartaTipoCarta(int id)

@@ -129,9 +129,13 @@
                     <asp:TextBox runat="server" class="form-control" ID="txtDescricao" />
                 </div>
 
+                <div style="width: 1em" class="mb-3" >
+                    <asp:Image ImageUrl="" ID="imgPreView" runat="server" style="display:none;"  />
+                </div>
+
                 <div class="mb-3">
-                    <label for="txtImagemCarta" id="txtImagemCarta" class="form-label" runat="server">Casdatrar uma imagem para carta</label>
-                    <asp:FileUpload ID="fuImagem" runat="server" class="form-control-file" />
+                    <label for="txtImagemCarta" id="txtImagemCarta" class="form-label" runat="server">Cadastrar uma imagem para carta*</label>
+                    <asp:FileUpload ID="fuImagem" runat="server" class="form-control-file mb-3" />
                 </div>
 
                 <div class="mb-3">
@@ -215,7 +219,8 @@
             <label id="lblMensagem" runat="server"></label>
             <a href="~/Carta" visible="false" id="btnNovaCarta" runat="server">Cadastrar nova carta</a>
         </div>
-        <div class="container mt-4" runat="server">
+
+        <div class="container mt-4 mb-6" runat="server">
             <h3 class="text-center mb-2">Cartas cadastradas</h3>
             <table class="table m-auto table-hover table-bordered text-center m-auto">
                 <thead class="thead-dark">
@@ -272,7 +277,7 @@
 
         </div>
 
-        </div>
+        
         <asp:HiddenField ID="hfIdCarta" runat="server" />
         <asp:HiddenField ID="hfIdCartaTipoCarta" runat="server" />
 

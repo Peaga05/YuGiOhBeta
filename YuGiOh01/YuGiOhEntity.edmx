@@ -410,7 +410,7 @@
           <Property Name="IdCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nivel" Type="Int32" />
-          <Property Name="NumeroCard" Type="String" Nullable="false" />
+          <Property Name="NumeroCard" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="PontosAtaque" Type="Int32" />
           <Property Name="PontosDefesa" Type="Int32" />
           <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />

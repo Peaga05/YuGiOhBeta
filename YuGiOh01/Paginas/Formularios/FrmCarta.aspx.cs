@@ -18,10 +18,10 @@ namespace YuGiOh01.Paginas.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (!Page.IsPostBack)
             {
-              
+
                 PopularLvCarta(CartaDAO.ObterCartas());
 
                 PopularDdls(
@@ -35,8 +35,8 @@ namespace YuGiOh01.Paginas.Formularios
                     MonstroPenduloDAO.ObterMonstrosPendulos()
                 );
             }
-            
-                
+
+
         }
 
         private void PopularLvCarta(List<Carta> cartas)
@@ -150,7 +150,7 @@ namespace YuGiOh01.Paginas.Formularios
                     ctc = new CartaTipoCarta();
                 }
 
-                if(txtNomeCard.Text != "")
+                if (txtNomeCard.Text != "")
                 {
                     carta.Nome = txtNomeCard.Text;
                 }
@@ -158,7 +158,7 @@ namespace YuGiOh01.Paginas.Formularios
                 {
                     mensagem = "Preencha o campo nome da carta</br>";
                 }
-                if(txtNumeroCarta.Text != "")
+                if (txtNumeroCarta.Text != "")
                 {
                     carta.NumeroCard = txtNumeroCarta.Text;
                 }
@@ -172,23 +172,23 @@ namespace YuGiOh01.Paginas.Formularios
                 }
                 else
                 {
-                    mensagem  += "Preencha o campo descricão</br>";
+                    mensagem += "Preencha o campo descricão</br>";
                 }
 
                 if (txtNivel.Text != "")
                 {
                     carta.Nivel = Convert.ToInt32(txtNivel.Text);
                 }
-                if(txtPontoAtaque.Text != "")
+                if (txtPontoAtaque.Text != "")
                 {
                     carta.PontosAtaque = Convert.ToInt32(txtPontoAtaque.Text);
                 }
-                if(txtPontoDefesa.Text != "")
+                if (txtPontoDefesa.Text != "")
                 {
                     carta.PontosDefesa = Convert.ToInt32(txtPontoDefesa.Text);
                 }
                 var idx = Convert.ToInt32(ddlTipoCarta.SelectedIndex);
-                if(idx > 0)
+                if (idx > 0)
                 {
                     carta.IdTipoCarta = Convert.ToInt32(ddlTipoCarta.SelectedValue);
                 }
@@ -201,11 +201,11 @@ namespace YuGiOh01.Paginas.Formularios
                 if (idx > 0)
                 {
                     carta.IdAtributo = Convert.ToInt32(ddlAtributo.SelectedValue);
-                    
+
                 }
 
                 idx = Convert.ToInt32(ddlIcone.SelectedIndex);
-                if(idx > 0)
+                if (idx > 0)
                 {
                     carta.IdIcone = Convert.ToInt32(ddlIcone.SelectedValue);
                 }
@@ -233,20 +233,20 @@ namespace YuGiOh01.Paginas.Formularios
                                 if (ddlMonstroEfeito.SelectedItem.Text.ToLower() == "pêndulo")
                                 {
                                     idx = Convert.ToInt32(ddlMonstroPendulo.SelectedIndex);
-                                    if(idx > 0)
+                                    if (idx > 0)
                                     {
                                         ctc.IdMonstroPendulo = Convert.ToInt32(ddlMonstroPendulo.SelectedValue);
                                     }
                                     else
                                     {
                                         mensagem += "Selecione um monstro pêndulo</br>";
-                                    }   
+                                    }
                                 }
                             }
                             else
                             {
                                 mensagem += "Selecione um monstro de efeito</br>";
-                            }                            
+                            }
                         }
                     }
                     else
@@ -270,7 +270,7 @@ namespace YuGiOh01.Paginas.Formularios
                     {
                         mensagem += "selecione um tipo de magia</br>";
                     }
-                    
+
                 }
 
                 if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
@@ -288,14 +288,14 @@ namespace YuGiOh01.Paginas.Formularios
                     {
                         mensagem += "selecione um tipo de armadilha</br>";
                     }
-                   
+
                 }
                 if (!fuImagem.HasFile)
                 {
                     mensagem += "Cadastre uma imagem para a carta</br>";
                 }
 
-                if(mensagem == "")
+                if (mensagem == "")
                 {
                     if (btnCadastrar.Text.ToLower() == "alterar")
                     {
@@ -333,14 +333,14 @@ namespace YuGiOh01.Paginas.Formularios
                     lblMensagem.InnerHtml = mensagem;
                 }
 
-               
+
 
             }
             catch (DbUpdateException dbUpEx)
             {
                 lblMensagem.InnerHtml += "<b>Por favor preencha os campos obrigatórios!</b>";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
             }
@@ -353,7 +353,7 @@ namespace YuGiOh01.Paginas.Formularios
         {
             var comando = e.CommandName.ToLower();
             var id = Convert.ToInt32(e.CommandArgument);
-            if(comando == "alterar")
+            if (comando == "alterar")
             {
 
                 AlterarCarta(id);
@@ -363,14 +363,14 @@ namespace YuGiOh01.Paginas.Formularios
                 contentView.Attributes.CssStyle.Value = "display:none";
 
             }
-            else if(comando == "visualizar")
+            else if (comando == "visualizar")
             {
                 VisualizarCarta(id);
-                btnNovaCarta.Visible= true;
-                fuImagem.Visible= false;
-                txtImagemCarta.Visible= false;
+                btnNovaCarta.Visible = true;
+                fuImagem.Visible = false;
+                txtImagemCarta.Visible = false;
             }
-            else if(comando == "excluir")
+            else if (comando == "excluir")
             {
                 ExcluirImagemCarta(id);
                 ExcluirCarta(id);
@@ -385,22 +385,18 @@ namespace YuGiOh01.Paginas.Formularios
             contentView.Attributes.CssStyle.Value = "display:block";
             var carta = CartaDAO.ObterCarta(id);
             var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
-            
+
             ImagemCard.Visible = true;
             ImagemCard.ImageUrl = "~/Assets/Upload/" + carta.IdCarta + ".png";
-            txtNomeCard.Text = carta.Nome.ToString();
-            txtNivel.Text = carta.Nivel.ToString();
-            ddlAtributo.Text = carta.IdAtributo.ToString();
-            ddlTipoCarta.Text = carta.IdTipoCarta.ToString();
             lblNivel.InnerHtml = "<b>" + carta.Nivel + "</b>";
             lblAtributo.InnerHtml = "<b>" + carta.IdAtributo + "</b>";
-            
+
             var idTipoCarta = TipoCartaDAO.ObterTipoCarta(carta.IdTipoCarta);
-            lblTipoCarta.InnerHtml= "<b>" + idTipoCarta.Descricao + "</b>";
+            lblTipoCarta.InnerHtml = "<b>" + idTipoCarta.Descricao + "</b>";
 
             if (cartaTipoCarta.IdMonstro != null)
             {
-                
+
                 var idMonstro = Convert.ToInt32(cartaTipoCarta.IdMonstro);
                 contentMonstro.Attributes.CssStyle.Value = "display:inline";
                 contentMagia.Attributes.CssStyle.Value = "display:none";
@@ -424,34 +420,7 @@ namespace YuGiOh01.Paginas.Formularios
                         lblPendulo.InnerHtml = "<b>" + pendulo.Descricao + "</b>";
                     }
                 }
-                
-        private void ExcluirImagemCarta(int id)
-        {
-            try
-            {
-                FileInfo TheFile = new FileInfo(MapPath("~/") + "Assets/Upload\\" + id + ".png");
-                if (TheFile.Exists)
-                {
-                    File.Delete(MapPath("~/") + "Assets/Upload\\"+ id + ".png");
-                }
-                else
-                {
-                    throw new FileNotFoundException();
-                }
-            }
-            catch (Exception ex)
-            {
-                lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
-            }
 
-        }
-
-        private void ExcluirCarta(int id)
-        {
-            CartaTipoCartaDAO.ExcluirCartaTipoCarta(id);
-            CartaDAO.ExcluirCarta(id);
-            PopularLvCarta(CartaDAO.ObterCartas());
-        }
 
             }
             if (cartaTipoCarta.IdArmadilha != null)
@@ -498,16 +467,45 @@ namespace YuGiOh01.Paginas.Formularios
                 lblIcone.InnerHtml = "<b>" + icone.Descricao + "</b>";
             }
             lblNumCarta.InnerHtml = "<b>" + carta.NumeroCard + "</b>";
-            lblDesc.InnerHtml= "<b>" + carta.Descricao + "</b>";
+            lblDesc.InnerHtml = "<b>" + carta.Descricao + "</b>";
             lblPatk.InnerHtml = "<b>" + carta.PontosAtaque + "</b>";
             lblpDfs.InnerHtml = "<b>" + carta.PontosDefesa + "</b>";
 
             h1Titulo.InnerText = carta.Nome;
         }
 
+
+        private void ExcluirImagemCarta(int id)
+        {
+            try
+            {
+                FileInfo TheFile = new FileInfo(MapPath("~/") + "Assets/Upload\\" + id + ".png");
+                if (TheFile.Exists)
+                {
+                    File.Delete(MapPath("~/") + "Assets/Upload\\" + id + ".png");
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensagem.InnerText += "Ocorreu um erro ao realizar a operação " + ex.Message;
+            }
+
+        }
+
+        private void ExcluirCarta(int id)
+        {
+            CartaTipoCartaDAO.ExcluirCartaTipoCarta(id);
+            CartaDAO.ExcluirCarta(id);
+            PopularLvCarta(CartaDAO.ObterCartas());
+        }
+
         private void AlterarCarta(int id)
         {
-          
+
 
             var carta = CartaDAO.ObterCarta(id);
             var cartaTipoCarta = CartaTipoCartaDAO.ObterCartaTipoCarta(id);
@@ -587,7 +585,7 @@ namespace YuGiOh01.Paginas.Formularios
                     ddlMonstroPendulo.SelectedIndex = 0;
 
                 }
-                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha" )
+                if (ddlTipoCarta.SelectedItem.Text.ToLower() == "armadilha")
                 {
                     slArmadilha.Attributes.CssStyle.Value = "display:block";
                     slMonstro.Attributes.CssStyle.Value = "display:none";
@@ -629,7 +627,7 @@ namespace YuGiOh01.Paginas.Formularios
                     slArmadilha.Attributes.CssStyle.Value = "display:none";
                     ddlMagias.SelectedIndex = 0;
                     ddlArmadilha.SelectedIndex = 0;
-                    
+
 
                 }
 
@@ -654,13 +652,13 @@ namespace YuGiOh01.Paginas.Formularios
                 slMonstroPendulo.Attributes.CssStyle.Value = "display:none";
             }
 
-            
 
-            
-            
-          
 
-            
+
+
+
+
+
 
         }
 

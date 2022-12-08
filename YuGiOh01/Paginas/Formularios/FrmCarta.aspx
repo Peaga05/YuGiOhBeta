@@ -139,8 +139,10 @@
                 </div>
 
             </div>
+
             <div id="contentView" class="m-auto text-center h6" style="display: none" runat="server">
-                <div>
+               
+                <div class="mb-3 ">
                     <asp:Image ImageUrl="" ID="ImagemCard" runat="server" Style="width: 400px" />
                 </div>
 

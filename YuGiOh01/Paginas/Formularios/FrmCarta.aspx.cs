@@ -388,6 +388,8 @@ namespace YuGiOh01.Paginas.Formularios
                 AlterarCarta(id);
                 btnNovaCarta.Visible = true;
                 ddlAcoes_SelectedIndexChanged(sender, e);
+
+
                 contentCad.Attributes.CssStyle.Value = "display:block";
                 contentView.Attributes.CssStyle.Value = "display:none";
 
@@ -396,8 +398,6 @@ namespace YuGiOh01.Paginas.Formularios
             {
                 VisualizarCarta(id);
                 btnNovaCarta.Visible = true;
-                fuImagem.Visible = false;
-                txtImagemCarta.Visible = false;
             }
             else if (comando == "excluir")
             {

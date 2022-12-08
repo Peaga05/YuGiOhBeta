@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using YuGiOh01.DAO;
+using static System.Drawing.Image;
 
 namespace YuGiOh01.Paginas.Formularios
 {
@@ -179,13 +180,25 @@ namespace YuGiOh01.Paginas.Formularios
                 {
                     carta.Nivel = Convert.ToInt32(txtNivel.Text);
                 }
+                else
+                {
+                    carta.Nivel = null;
+                }
                 if (txtPontoAtaque.Text != "")
                 {
                     carta.PontosAtaque = Convert.ToInt32(txtPontoAtaque.Text);
                 }
+                else
+                {
+                    carta.PontosAtaque = null;
+                }
                 if (txtPontoDefesa.Text != "")
                 {
                     carta.PontosDefesa = Convert.ToInt32(txtPontoDefesa.Text);
+                }
+                else
+                {
+                    carta.PontosDefesa = null;
                 }
                 var idx = Convert.ToInt32(ddlTipoCarta.SelectedIndex);
                 if (idx > 0)
@@ -203,11 +216,19 @@ namespace YuGiOh01.Paginas.Formularios
                     carta.IdAtributo = Convert.ToInt32(ddlAtributo.SelectedValue);
 
                 }
+                else
+                {
+                    carta.IdAtributo = null;
+                }
 
                 idx = Convert.ToInt32(ddlIcone.SelectedIndex);
                 if (idx > 0)
                 {
                     carta.IdIcone = Convert.ToInt32(ddlIcone.SelectedValue);
+                }
+                else
+                {
+                    carta.IdIcone = null;
                 }
 
 
@@ -290,10 +311,14 @@ namespace YuGiOh01.Paginas.Formularios
                     }
 
                 }
-                if (!fuImagem.HasFile)
+
+                FileInfo TheFile = new FileInfo(MapPath("~/") + "Assets/Upload\\" + carta.IdCarta + ".png");
+
+                if (!fuImagem.HasFile && !TheFile.Exists)
                 {
-                    mensagem += "Cadastre uma imagem para a carta</br>";
+                    mensagem += "Cadastre uma imagem para a carta";
                 }
+                
 
                 if (mensagem == "")
                 {
@@ -306,10 +331,14 @@ namespace YuGiOh01.Paginas.Formularios
                         carta = CartaDAO.CadastrarCarta(carta);
                     }
 
-                    var arquivo = fuImagem.PostedFile;
-                    var map = MapPath("~/");
-                    var caminho = map + "Assets/Upload\\" + carta.IdCarta + ".png";
-                    arquivo.SaveAs(caminho);
+                    if (fuImagem.HasFile)
+                    {
+                        var arquivo = fuImagem.PostedFile;
+                        var map = MapPath("~/");
+                        var caminho = map + "Assets/Upload\\" + carta.IdCarta + ".png";
+                        arquivo.SaveAs(caminho);
+                    }
+
 
                     ctc.IdCarta = carta.IdCarta;
                     ctc.IdTipoCarta = carta.IdTipoCarta;
@@ -534,6 +563,10 @@ namespace YuGiOh01.Paginas.Formularios
             ddlTipoCarta.SelectedValue = carta.IdTipoCarta.ToString();
             txtNumeroCarta.Text = carta.NumeroCard.ToString();
             txtDescricao.Text = carta.Descricao.ToString();
+            txtImagemCarta.InnerText = "Cadastrar nova imagem para a carta";
+            
+            imgPreView.ImageUrl = "~/Assets/Upload/" + carta.IdCarta + ".png";
+            imgPreView.Attributes.CssStyle.Value = "display:block";
 
             if (carta.Nivel.HasValue)
             {

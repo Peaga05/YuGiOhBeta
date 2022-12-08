@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="txtImagemCarta" id="txtImagemCarta" class="form-label" runat="server">Cadastrar uma imagem para carta*</label>
+                    <label for="txtImagemCarta" id="txtImagemCarta" class="form-label" runat="server" >Cadastrar uma imagem para carta*</label>
                     <asp:FileUpload ID="fuImagem" runat="server" class="form-control-file mb-3" />
                 </div>
 

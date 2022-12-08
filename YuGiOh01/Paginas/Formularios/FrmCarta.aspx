@@ -129,8 +129,8 @@
                     <asp:TextBox runat="server" class="form-control" ID="txtDescricao" />
                 </div>
 
-                <div style="width: 1em" class="mb-3" >
-                    <asp:Image ImageUrl="" ID="imgPreView" runat="server" style="display:none;"  />
+                <div class="mb-3" >
+                    <asp:Image ImageUrl="" ID="imgPreView" runat="server" style="display:none;"  class="w-25" />
                 </div>
 
                 <div class="mb-3">

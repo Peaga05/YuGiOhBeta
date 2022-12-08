@@ -417,11 +417,26 @@ namespace YuGiOh01.Paginas.Formularios
 
             ImagemCard.Visible = true;
             ImagemCard.ImageUrl = "~/Assets/Upload/" + carta.IdCarta + ".png";
-            lblNivel.InnerHtml = "<b>" + carta.Nivel + "</b>";
-            lblAtributo.InnerHtml = "<b>" + carta.IdAtributo + "</b>";
-
             var idTipoCarta = TipoCartaDAO.ObterTipoCarta(carta.IdTipoCarta);
             lblTipoCarta.InnerHtml = "<b>" + idTipoCarta.Descricao + "</b>";
+            
+            if (carta.Nivel != null)
+            {
+                contentNivel.Attributes.CssStyle.Value = "display:inline";
+                lblNivel.InnerHtml = "<b>" + carta.Nivel + "</b>";
+            }
+
+            if (carta.PontosDefesa != null)
+            {
+                contentpDfs.Attributes.CssStyle.Value = "display:inline";
+                lblpDfs.InnerHtml = "<b>" + carta.PontosDefesa + "</b>";
+            }
+            if (carta.PontosAtaque != null)
+            {
+                contentPatk.Attributes.CssStyle.Value = "display:inline";
+                lblPatk.InnerHtml = "<b>" + carta.PontosAtaque + "</b>";
+            }
+
 
             if (cartaTipoCarta.IdMonstro != null)
             {
@@ -483,7 +498,7 @@ namespace YuGiOh01.Paginas.Formularios
             if (carta.IdAtributo != null)
             {
                 var idAtributo = Convert.ToInt32(carta.IdAtributo);
-                lblAtributo.Attributes.CssStyle.Value = "display:inline";
+                contentAtributo.Attributes.CssStyle.Value = "display:inline";
                 var atributo = AtributoDAO.ObterAtributo(idAtributo);
                 lblAtributo.InnerHtml = "<b>" + atributo.Descricao + "</b>";
             }
@@ -497,8 +512,6 @@ namespace YuGiOh01.Paginas.Formularios
             }
             lblNumCarta.InnerHtml = "<b>" + carta.NumeroCard + "</b>";
             lblDesc.InnerHtml = "<b>" + carta.Descricao + "</b>";
-            lblPatk.InnerHtml = "<b>" + carta.PontosAtaque + "</b>";
-            lblpDfs.InnerHtml = "<b>" + carta.PontosDefesa + "</b>";
 
             h1Titulo.InnerText = carta.Nome;
         }

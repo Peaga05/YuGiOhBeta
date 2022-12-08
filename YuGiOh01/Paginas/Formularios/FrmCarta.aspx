@@ -107,10 +107,10 @@
                     <asp:DropDownList runat="server" ID="ddlIcone" class="form-select w-100 p-2"></asp:DropDownList>
                 </div>
 
-            <div class="mb-3">
-                <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
-                <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" />
-            </div>
+                <div class="mb-3">
+                    <label for="txtNumeroCarta" class="form-label" runat="server">Número da carta *</label>
+                    <asp:TextBox runat="server" class="form-control" ID="txtNumeroCarta" />
+                </div>
 
 
 
@@ -145,16 +145,21 @@
             </div>
 
             <div id="contentView" class="m-auto text-center h6" style="display: none" runat="server">
-               
+
                 <div class="mb-3 ">
                     <asp:Image ImageUrl="" ID="ImagemCard" runat="server" Style="width: 400px" />
                 </div>
 
                 <div class="mb-3 ">
-                    <label class="form-label" runat="server">Nível: </label>
-                    <label class="pr-3" id="lblNivel" runat="server"></label>
-                    <label class="" runat="server">Atributo: </label>
-                    <label id="lblAtributo" runat="server"></label>
+                    <div id="contentNivel" style="display: none" runat="server">
+                        <label class="form-label" runat="server">Nível: </label>
+                        <label class="pr-3" id="lblNivel" runat="server"></label>
+                    </div>
+                    <div id="contentAtributo" style="display: none" runat="server">
+                        <label class="" runat="server">Atributo: </label>
+                        <label id="lblAtributo" runat="server"></label>
+                    </div>
+
                 </div>
 
                 <div class="mb-3  ">
@@ -198,14 +203,18 @@
                     <label class="form-label" runat="server">Número da carta: </label>
                     <label class="pr-3" id="lblNumCarta" runat="server"></label>
                 </div>
-                <div class="mb-3  ">
-                    <label class="form-label" runat="server">Pontos Ataque: </label>
-                    <label class="pr-3" id="lblPatk" runat="server"></label>
-                    <label class="form-label" runat="server">Pontos Defesa: </label>
-                    <label id="lblpDfs" runat="server"></label>
+                <div class="mb-3 ">
+                    <div id="contentPatk" style="display: none" runat="server">
+                        <label class="form-label" runat="server">Pontos Ataque: </label>
+                        <label class="pr-3" id="lblPatk" runat="server"></label>
+                    </div>
+                    <div id="contentpDfs" style="display: none" runat="server">
+                        <label class="form-label" runat="server">Pontos Defesa: </label>
+                        <label id="lblpDfs" runat="server"></label>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" style="display:block" runat="server">Descrição: </label>
+                    <label class="form-label" style="display: block" runat="server">Descrição: </label>
                     <label id="lblDesc" style="max-width: 340px" runat="server"></label>
                 </div>
 

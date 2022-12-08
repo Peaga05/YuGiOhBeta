@@ -33,20 +33,20 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1Titulo;
 
         /// <summary>
-        /// Controle contentCad.
+        /// contentCad control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentCad;
 
         /// <summary>
-        /// Controle txtNomeCard.
+        /// txtNomeCard control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNomeCard;
 
@@ -222,11 +222,11 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
 
         /// <summary>
-        /// Controle txtImagemCarta.
+        /// txtImagemCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtImagemCarta;
 
@@ -249,191 +249,191 @@ namespace YuGiOh01.Paginas.Formularios
         protected global::System.Web.UI.WebControls.Button btnCadastrar;
 
         /// <summary>
-        /// Controle contentView.
+        /// contentView control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentView;
 
         /// <summary>
-        /// Controle ImagemCard.
+        /// ImagemCard control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImagemCard;
 
         /// <summary>
-        /// Controle lblNivel.
+        /// lblNivel control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNivel;
 
         /// <summary>
-        /// Controle lblAtributo.
+        /// lblAtributo control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAtributo;
 
         /// <summary>
-        /// Controle lblTipoCarta.
+        /// lblTipoCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTipoCarta;
 
         /// <summary>
-        /// Controle contentMonstro.
+        /// contentMonstro control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentMonstro;
 
         /// <summary>
-        /// Controle lblMonstro.
+        /// lblMonstro control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMonstro;
 
         /// <summary>
-        /// Controle contentArmadilha.
+        /// contentArmadilha control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentArmadilha;
 
         /// <summary>
-        /// Controle lblArmadilha.
+        /// lblArmadilha control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblArmadilha;
 
         /// <summary>
-        /// Controle contentMagia.
+        /// contentMagia control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentMagia;
 
         /// <summary>
-        /// Controle lblMagia.
+        /// lblMagia control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMagia;
 
         /// <summary>
-        /// Controle contentEfeito.
+        /// contentEfeito control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentEfeito;
 
         /// <summary>
-        /// Controle lblEfeito.
+        /// lblEfeito control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEfeito;
 
         /// <summary>
-        /// Controle contentPendulo.
+        /// contentPendulo control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentPendulo;
 
         /// <summary>
-        /// Controle lblPendulo.
+        /// lblPendulo control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPendulo;
 
         /// <summary>
-        /// Controle lblIconeTitle.
+        /// lblIconeTitle control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIconeTitle;
 
         /// <summary>
-        /// Controle lblIcone.
+        /// lblIcone control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIcone;
 
         /// <summary>
-        /// Controle lblNumCarta.
+        /// lblNumCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNumCarta;
 
         /// <summary>
-        /// Controle lblPatk.
+        /// lblPatk control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPatk;
 
         /// <summary>
-        /// Controle lblpDfs.
+        /// lblpDfs control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblpDfs;
 
         /// <summary>
-        /// Controle lblDesc.
+        /// lblDesc control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDesc;
 
@@ -459,22 +459,22 @@ namespace YuGiOh01.Paginas.Formularios
         /// lvCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvCarta;
 
         /// <summary>
-        /// Controle hfIdCarta.
+        /// hfIdCarta control.
         /// </summary>
         /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfIdCarta;
 
         /// <summary>
-        /// Controle hfIdCartaTipoCarta.
+        /// hfIdCartaTipoCarta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
